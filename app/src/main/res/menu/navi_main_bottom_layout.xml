@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/chatMsgFragment"
+        android:icon="@drawable/img_bottom_msg"
+        android:title="@string/msg" />
+    <item
+        android:id="@+id/connectFragment"
+        android:icon="@drawable/img_bottom_contact"
+        android:title="@string/connect" />
+    <item
+        android:id="@+id/workFragment"
+        android:icon="@drawable/img_bottom_work"
+        android:title="@string/work" />
+    <item
+        android:id="@+id/appFragment"
+        android:icon="@drawable/img_bottom_application"
+        android:title="@string/app" />
+    <item
+        android:id="@+id/userFragment"
+        android:icon="@drawable/img_bottom_mine"
+        android:title="@string/mine" />
+</menu>
