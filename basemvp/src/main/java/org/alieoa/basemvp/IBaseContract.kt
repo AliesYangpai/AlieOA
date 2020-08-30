@@ -14,6 +14,7 @@ interface IBaseContract {
     interface IBaseView {
         fun showLoadingDialog()
         fun dismissLoadingDialog()
+        fun onDataBackFail(code: Int, errorMsg: String)
     }
 
     interface IBaseModel {}
