@@ -16,7 +16,9 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
     android:background="?android:attr/windowBackground"
-    app:menu="@menu/navi_main_bottom_layout" />
+    app:menu="@menu/navi_main_bottom_layout"
+    app:labelVisibilityMode="labeled"
+    />
     <fragment
         android:id="@+id/fg_main_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
@@ -29,4 +31,16 @@
         app:layout_constraintBottom_toTopOf="@+id/bnv"
         app:layout_constraintTop_toTopOf="parent"
         />
+<!--    <androidx.fragment.app.FragmentContainerView-->
+<!--        android:id="@+id/fg_main_container"-->
+<!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:defaultNavHost="true"-->
+<!--        app:navGraph="@navigation/main_navi_fg"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/bnv"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        />-->
 </androidx.constraintlayout.widget.ConstraintLayout>
