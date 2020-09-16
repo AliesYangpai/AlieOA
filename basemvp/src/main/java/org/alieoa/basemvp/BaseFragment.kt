@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import butterknife.ButterKnife
+import butterknife.Unbinder
 
 /**
  * A simple [Fragment] subclass.
@@ -16,7 +18,8 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
 
     var mPresenter: P? = null
 
-    var mIsPrepare: Boolean = false;
+    var mIsPrepare: Boolean = false
+    var mUnbinder: Unbinder? = null
     override fun onAttach(context: Context) {
         super.onAttach(context)
         this.mActivity = context as AppCompatActivity
@@ -34,7 +37,9 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(layoutId(), container, false)
+      val view = inflater.inflate(layoutId(), container, false)
+        mUnbinder =  ButterKnife.bind(this,view)
+        return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,7 +49,10 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
         onLazyLoad()
     }
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mUnbinder?.unbind()
+    }
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)

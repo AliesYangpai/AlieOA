@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/work_nav_fg"
+    app:startDestination="@id/fragmentWorkChildAll">
+
+    <fragment
+        android:id="@+id/fragmentWorkChildAll"
+        android:name="org.alieoa.work.ui.fg.work.FragmentWorkChildAll"
+        android:label="fragment_work_child_all"
+        tools:layout="@layout/fragment_work_child_all" />
+    <fragment
+        android:id="@+id/fragmentWorkChildApprove"
+        android:name="org.alieoa.work.ui.fg.work.FragmentWorkChildApprove"
+        android:label="fragment_work_child_approve"
+        tools:layout="@layout/fragment_work_child_approve" />
+    <fragment
+        android:id="@+id/workChildReportFragment"
+        android:name="org.alieoa.work.ui.fg.work.WorkChildReportFragment"
+        android:label="fragment_work_child_report"
+        tools:layout="@layout/fragment_work_child_report" />
+    <fragment
+        android:id="@+id/workChildClientFragment"
+        android:name="org.alieoa.work.ui.fg.work.WorkChildClientFragment"
+        android:label="fragment_work_child_client"
+        tools:layout="@layout/fragment_work_child_client" />
+    <fragment
+        android:id="@+id/workChildAnnounceFragment"
+        android:name="org.alieoa.work.ui.fg.work.WorkChildAnnounceFragment"
+        android:label="fragment_work_child_announce"
+        tools:layout="@layout/fragment_work_child_announce" />
+</navigation>
