@@ -1,23 +1,30 @@
 package org.alieoa.work.ui.fg
 
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import butterknife.BindView
 import butterknife.OnClick
 import com.google.android.material.tabs.TabLayout
 import org.alieoa.basemvp.BaseFragment
 import org.alieoa.work.R
+import org.alieoa.work.constant.ConstLocalData
 
 import org.alieoa.work.contract.WorkContract
 import org.alieoa.work.contract.presenter.PresenterFgWork
 
 class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
-    WorkContract.IWorkView {
+    WorkContract.IWorkView,
+    TabLayout.OnTabSelectedListener {
 
     lateinit var mNavController: NavController
 
@@ -56,7 +63,8 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
     }
 
     override fun initView(rootView: View) {
-        mNavController = findNavController()
+        mNavController = mActivity.findNavController(R.id.fg_work_child_container)
+        mTblWorkChild.addOnTabSelectedListener(this)
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_all)))
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.approve)))
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_report)))
@@ -67,13 +75,31 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
 
 
     override fun initListener() {
+
     }
 
     override fun onLazyLoad() {
-
+        mTblWorkChild.getTabAt(ConstLocalData.TAB_INDEX_0)?.select()
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {
+    }
+
+    override fun onTabSelected(tab: TabLayout.Tab?) {
+        when (tab?.position) {
+            ConstLocalData.TAB_INDEX_0 -> mNavController.navigate(R.id.fragmentWorkChildAll)
+            ConstLocalData.TAB_INDEX_1 -> mNavController.navigate(R.id.fragmentWorkChildApprove)
+            ConstLocalData.TAB_INDEX_2 -> mNavController.navigate(R.id.workChildReportFragment)
+            ConstLocalData.TAB_INDEX_3 -> mNavController.navigate(R.id.workChildClientFragment)
+            ConstLocalData.TAB_INDEX_4 -> mNavController.navigate(R.id.workChildAnnounceFragment)
+        }
+
+    }
+
+    override fun onTabUnselected(tab: TabLayout.Tab?) {
+    }
+
+    override fun onTabReselected(tab: TabLayout.Tab?) {
     }
 
 

@@ -14,7 +14,7 @@
 
 
     <!-- Base application theme. -->
-    <style name="AppAlieOATheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="AppAlieOATheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -40,7 +40,9 @@
         <item name="android:windowBackground">@drawable/img_launch_bg</item>
         <item name="android:windowNoTitle">true</item>
     </style>
-
+    <style name="TabWorkChild">
+        <item name="android:textStyle">bold</item>
+    </style>
 
 
 

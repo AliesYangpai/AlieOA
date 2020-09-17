@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fg.WorkFragment">
 
@@ -15,8 +16,8 @@
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tbl_work_child"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_48"
         app:layout_constraintStart_toStartOf="@id/include_work_child_all_title"
         app:layout_constraintEnd_toEndOf="@id/include_work_child_all_title"
         app:layout_constraintTop_toBottomOf="@id/include_work_child_all_title"
