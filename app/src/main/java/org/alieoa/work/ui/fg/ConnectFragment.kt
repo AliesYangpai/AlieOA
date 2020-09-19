@@ -5,7 +5,9 @@ import android.icu.text.CaseMap
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import butterknife.BindView
+import butterknife.OnClick
 import org.alieoa.basemvp.BaseFragment
 import org.alieoa.work.R
 
@@ -21,6 +23,34 @@ class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgCo
 
     @BindView(R.id.iv_right)
     lateinit var mIvRight: ImageView
+
+
+    @OnClick(
+        R.id.iv_phone_contact,
+        R.id.tv_phone_contact,
+        R.id.iv_my_friends,
+        R.id.tv_my_friends,
+        R.id.iv_my_groups,
+        R.id.tv_my_groups,
+        R.id.iv_department_structure,
+        R.id.tv_department_structure,
+    )
+    fun onClick(view: View) {
+        when (view.id) {
+            R.id.iv_phone_contact, R.id.tv_phone_contact -> {
+            Toast.makeText(mActivity.applicationContext,"联系人",Toast.LENGTH_SHORT).show()
+            }
+            R.id.iv_my_friends, R.id.tv_my_friends -> {
+                Toast.makeText(mActivity.applicationContext,"我的好友",Toast.LENGTH_SHORT).show()
+            }
+            R.id.iv_my_groups, R.id.tv_my_groups -> {
+                Toast.makeText(mActivity.applicationContext,"我的群组",Toast.LENGTH_SHORT).show()
+            }
+            R.id.iv_department_structure, R.id.tv_department_structure -> {
+                Toast.makeText(mActivity.applicationContext,"部门架构",Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     override fun layoutId(): Int {
         return R.layout.fragment_connect

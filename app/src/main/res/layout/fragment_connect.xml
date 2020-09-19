@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fg.ConnectFragment">
 
 
@@ -12,12 +12,11 @@
     <include
         android:id="@+id/include_title_contact"
         layout="@layout/title_bar_fg_center_right_img"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-
+    <!-- 搜索 -->
     <include
         android:id="@+id/include_search"
         layout="@layout/include_title_search"
@@ -25,8 +24,155 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_marginRight="@dimen/dp_10"
-        app:layout_constraintStart_toStartOf="@id/include_title_contact"
         app:layout_constraintEnd_toEndOf="@id/include_title_contact"
-        app:layout_constraintTop_toBottomOf="@id/include_title_contact"
-        />
+        app:layout_constraintStart_toStartOf="@id/include_title_contact"
+        app:layout_constraintTop_toBottomOf="@id/include_title_contact" />
+
+    <!--手机通讯录-->
+    <View
+        android:id="@+id/view_line1"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0_5"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@color/bg_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_search" />
+
+    <ImageView
+        android:id="@+id/iv_phone_contact"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:src="@drawable/img_phone_contact"
+        app:layout_constraintStart_toStartOf="@id/include_search"
+        app:layout_constraintTop_toBottomOf="@+id/view_line1" />
+
+    <TextView
+        android:id="@+id/tv_phone_contact"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:text="@string/phone_contact"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/sp_17"
+        app:layout_constraintBottom_toBottomOf="@id/iv_phone_contact"
+        app:layout_constraintEnd_toEndOf="@id/include_search"
+        app:layout_constraintStart_toEndOf="@id/iv_phone_contact"
+        app:layout_constraintTop_toTopOf="@+id/iv_phone_contact" />
+
+    <!--我的好友-->
+    <View
+        android:id="@+id/view_line2"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/bg_all"
+        app:layout_constraintEnd_toEndOf="@id/tv_phone_contact"
+        app:layout_constraintStart_toStartOf="@id/iv_phone_contact"
+        app:layout_constraintTop_toBottomOf="@+id/iv_phone_contact" />
+
+    <ImageView
+        android:id="@+id/iv_my_friends"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:src="@drawable/img_my_friends"
+        app:layout_constraintStart_toStartOf="@id/view_line2"
+        app:layout_constraintTop_toBottomOf="@+id/view_line2" />
+
+    <TextView
+        android:id="@+id/tv_my_friends"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:text="@string/my_friends"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/sp_17"
+        app:layout_constraintBottom_toBottomOf="@id/iv_my_friends"
+        app:layout_constraintEnd_toEndOf="@id/view_line2"
+        app:layout_constraintStart_toEndOf="@id/iv_my_friends"
+        app:layout_constraintTop_toTopOf="@+id/iv_my_friends" />
+
+    <!--我的群组-->
+    <View
+        android:id="@+id/view_line3"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/bg_all"
+        app:layout_constraintEnd_toEndOf="@id/tv_my_friends"
+        app:layout_constraintStart_toStartOf="@id/iv_my_friends"
+        app:layout_constraintTop_toBottomOf="@+id/iv_my_friends" />
+
+    <ImageView
+        android:id="@+id/iv_my_groups"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:src="@drawable/img_my_group"
+        app:layout_constraintStart_toStartOf="@id/view_line3"
+        app:layout_constraintTop_toBottomOf="@+id/view_line3" />
+
+    <TextView
+        android:id="@+id/tv_my_groups"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:text="@string/my_group"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/sp_17"
+        app:layout_constraintBottom_toBottomOf="@id/iv_my_groups"
+        app:layout_constraintEnd_toEndOf="@id/view_line3"
+        app:layout_constraintStart_toEndOf="@id/iv_my_groups"
+        app:layout_constraintTop_toTopOf="@+id/iv_my_groups" />
+
+    <!-- 部门架构 -->
+    <View
+        android:id="@+id/view_line4"
+        android:layout_width="0dp"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/bg_all"
+        app:layout_constraintEnd_toEndOf="@id/tv_my_groups"
+        app:layout_constraintStart_toStartOf="@id/iv_my_groups"
+        app:layout_constraintTop_toBottomOf="@+id/iv_my_groups" />
+
+    <ImageView
+        android:id="@+id/iv_department_structure"
+        android:layout_width="@dimen/dp_30"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginTop="@dimen/dp_10"
+        android:src="@drawable/img_department_structure"
+        app:layout_constraintStart_toStartOf="@id/view_line4"
+        app:layout_constraintTop_toBottomOf="@+id/view_line4" />
+
+    <TextView
+        android:id="@+id/tv_department_structure"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:gravity="center_vertical"
+        android:text="@string/department"
+        android:textColor="@color/black_text"
+        android:textSize="@dimen/sp_17"
+        app:layout_constraintBottom_toBottomOf="@id/iv_department_structure"
+        app:layout_constraintEnd_toEndOf="@id/view_line4"
+        app:layout_constraintStart_toEndOf="@id/iv_department_structure"
+        app:layout_constraintTop_toTopOf="@+id/iv_department_structure" />
+
+    <View
+        android:id="@+id/view_line6"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/bg_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_department_structure" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
