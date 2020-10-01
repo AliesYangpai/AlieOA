@@ -27,6 +27,8 @@ android {
 }
 
 dependencies {
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.retrofit2:converter-gson:2.9.0"
     testApi 'junit:junit:4.12'
     androidTestApi 'androidx.test.ext:junit:1.1.2'
     androidTestApi 'androidx.test.espresso:espresso-core:3.3.0'

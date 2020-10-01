@@ -1,4 +1,4 @@
-package org.alieoa.work.db
+package org.alieoa.work.db.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

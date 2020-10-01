@@ -4,9 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import org.alieoa.work.db.dao.PhoneContactDao
 import org.alieoa.work.db.dao.UserDao
+import org.alieoa.work.db.entity.PhoneContact
+import org.alieoa.work.db.entity.User
 
 @Database(
     entities = [User::class, PhoneContact::class],
@@ -32,6 +35,7 @@ abstract class AlieOaDataBase : RoomDatabase() {
         private fun buildDataBase(context: Context): AlieOaDataBase {
             return Room
                 .databaseBuilder(context, AlieOaDataBase::class.java, "AlieOaDataBase")
+//                .addMigrations(MIGRATION_1_2)
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
@@ -47,7 +51,29 @@ abstract class AlieOaDataBase : RoomDatabase() {
 
                 }).build()
         }
+
+
+        val MIGRATION_1_2 = object : Migration(1,2) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+               // TODO("Not yet implemented")
+            }
+        }
+
+        val MIGRATION_2_3 = object :Migration(2,3) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+              //  TODO("Not yet implemented")
+            }
+        }
+
+        val MIGRATION_3_4 = object :Migration(3,4) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+              //  TODO("Not yet implemented")
+            }
+
+        }
     }
+
+
 
 
 }

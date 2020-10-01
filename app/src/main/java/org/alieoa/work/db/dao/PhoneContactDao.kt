@@ -1,7 +1,7 @@
 package org.alieoa.work.db.dao
 
 import androidx.room.*
-import org.alieoa.work.db.PhoneContact
+import org.alieoa.work.db.entity.PhoneContact
 
 @Dao
 interface PhoneContactDao {
