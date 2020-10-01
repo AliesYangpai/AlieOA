@@ -20,4 +20,9 @@ class ExampleUnitTest {
         Util.name
         Util.play()
     }
+
+    @Test
+    fun test2(){
+        println("===test:${Util.doGenerateUser()} ")
+    }
 }

@@ -72,6 +72,7 @@ class UserFragment : BaseFragment<UserContract.IUserView, PresenterFgUser>(),
     }
 
     override fun onLazyLoad() {
+        mPresenter?.doGetUserInfo()
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {
