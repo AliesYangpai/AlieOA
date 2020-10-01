@@ -13,31 +13,44 @@ import org.alieoa.work.method.IUserImpl
  * 版本
  */
 class PresenterFgUser : BasePresenter<UserContract.IUserView>(), UserContract.IUserPresenter {
-    var iUser:IUser?= null
+    private var iUser:IUserImpl?= null
 
     override fun onCreate() {
         super.onCreate()
         iUser = IUserImpl()
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        iUser?.clearAllDisposable()
+    }
+
     fun doGetUserInfo() {
-        iUser?.getUserInfo( object : OnDataBackListener<User> {
+        iUser?.getUserInfo(object : OnDataBackListener<User> {
             override fun onStar() {
-//                TODO("Not yet implemented")
+                mView?.showLoadingDialog()
+                println("====doGetUserInfo() start")
+            }
+
+            override fun onBeforeFinish() {
+                mView?.dismissLoadingDialog()
+                println("====onBeforeResult() start")
             }
 
             override fun onSuccess(t: User) {
-//                TODO("Not yet implemented")
+                mView?.showToast(t.toString())
+                println("====doGetUserInfo() onSuccess $t")
             }
 
             override fun onError(code: Int, msg: String) {
-//                TODO("Not yet implemented")
+                println("====doGetUserInfo() onError")
             }
 
             override fun onFinish() {
-//                TODO("Not yet implemented")
+                println("====doGetUserInfo() onFinish")
             }
-
         })
     }
+
+
 }

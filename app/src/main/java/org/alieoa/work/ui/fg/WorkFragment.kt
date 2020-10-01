@@ -82,6 +82,10 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
         mTblWorkChild.getTabAt(ConstLocalData.TAB_INDEX_0)?.select()
     }
 
+    override fun showToast(msg: String, duration: Int) {
+        Toast.makeText(mActivity.applicationContext,msg,duration).show()
+    }
+
     override fun onDataBackFail(code: Int, errorMsg: String) {
     }
 

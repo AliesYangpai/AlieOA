@@ -4,6 +4,7 @@ import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -51,6 +52,10 @@ class MainActivity : BaseActivity<MainContract.IMainView, PresenterMain>(),
     }
 
     override fun initData() {
+    }
+
+    override fun showToast(msg: String, duration: Int) {
+        Toast.makeText(this.applicationContext,msg,duration).show()
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {

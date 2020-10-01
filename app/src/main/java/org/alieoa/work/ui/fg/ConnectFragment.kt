@@ -72,6 +72,10 @@ class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgCo
     override fun onLazyLoad() {
     }
 
+    override fun showToast(msg: String, duration: Int) {
+        Toast.makeText(mActivity.applicationContext,msg,duration).show()
+    }
+
     override fun onDataBackFail(code: Int, errorMsg: String) {
     }
 

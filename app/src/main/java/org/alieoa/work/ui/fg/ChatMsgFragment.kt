@@ -2,6 +2,7 @@ package org.alieoa.work.ui.fg
 
 
 import android.view.View
+import android.widget.Toast
 import org.alieoa.basemvp.BaseFragment
 
 import org.alieoa.work.R
@@ -32,6 +33,10 @@ class ChatMsgFragment : BaseFragment<ChatMsgContract.IChatMsgView, PresenterFgCh
 
 
     override fun onLazyLoad() {
+    }
+
+    override fun showToast(msg: String, duration: Int) {
+        Toast.makeText(mActivity.applicationContext,msg,duration).show()
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {

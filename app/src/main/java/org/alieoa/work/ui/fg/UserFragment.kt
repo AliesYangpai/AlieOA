@@ -72,7 +72,12 @@ class UserFragment : BaseFragment<UserContract.IUserView, PresenterFgUser>(),
     }
 
     override fun onLazyLoad() {
+        println("=========UserFragment === onLazyLoad")
         mPresenter?.doGetUserInfo()
+    }
+
+    override fun showToast(msg: String, duration: Int) {
+        Toast.makeText(mActivity.applicationContext,msg,duration).show()
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {

@@ -11,7 +11,7 @@ import java.lang.ref.WeakReference
 abstract class BasePresenter<V : IBaseContract.IBaseView> :
     IBaseContract.IBasePresenter {
 
-    private var mView: V? = null
+    var mView: V? = null
     private var mWeakReference: WeakReference<V>? = null
     fun attachView(v: V) {
         mWeakReference = WeakReference(v)

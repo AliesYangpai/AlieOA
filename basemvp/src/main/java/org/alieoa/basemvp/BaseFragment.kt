@@ -29,7 +29,7 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
         super.onCreate(savedInstanceState)
         mPresenter = initPresenter()
         lifecycle.addObserver(mPresenter!!)
-        mPresenter?.attachView(this as V)
+//        mPresenter?.attachView(this as V)
     }
 
     override fun onCreateView(

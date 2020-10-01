@@ -3,6 +3,7 @@ package org.alieoa.work.ui.fg
 
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import butterknife.BindView
 import org.alieoa.basemvp.BaseFragment
 
@@ -31,6 +32,10 @@ class AppFragment : BaseFragment<AppContract.IAppView, PresenterFgApp>(), AppCon
     }
 
     override fun onLazyLoad() {
+    }
+
+    override fun showToast(msg: String, duration: Int) {
+        Toast.makeText(mActivity.applicationContext,msg,duration).show()
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {

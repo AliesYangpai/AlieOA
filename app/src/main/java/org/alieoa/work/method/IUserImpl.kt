@@ -1,27 +1,24 @@
 package org.alieoa.work.method
 
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import org.alieoa.work.api.ApiHttpClient
 import org.alieoa.work.api.UserService
 import org.alieoa.work.callback.OnDataBackListener
 import org.alieoa.work.db.entity.User
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
-class IUserImpl:IUser {
-    override fun getUserInfo( onDataBackListener: OnDataBackListener<User>) {
+class IUserImpl : IBaseMethod(), IUser {
+    override fun getUserInfo(onDataBackListener: OnDataBackListener<User>) {
         ApiHttpClient.getInstance().generateService(UserService::class.java)?.run {
-            getUserInfo().enqueue(object : Callback<User> {
-                override fun onResponse(call: Call<User>, response: Response<User>) {
-                    println("IUserImpl====onResponse:${response.body().toString()}")
-                }
-
-                override fun onFailure(call: Call<User>, t: Throwable) {
-                    println("IUserImpl====onFailure:${t.message}")
-                }
-
-            })
+            getUserInfo()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnTerminate { onDataBackListener.onBeforeFinish() }
+                .subscribe({ onDataBackListener.onSuccess(it) },
+                    { onDataBackListener.onError(0, it.localizedMessage) },
+                    { onDataBackListener.onFinish() },
+                    { onDataBackListener.onStar()
+                        addDisposable(it) })
         }
-
     }
 }

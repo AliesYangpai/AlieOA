@@ -1,5 +1,6 @@
 package org.alieoa.basemvp
 
+import android.widget.Toast
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
@@ -14,6 +15,7 @@ interface IBaseContract {
     interface IBaseView {
         fun showLoadingDialog()
         fun dismissLoadingDialog()
+        fun showToast(msg:String,duration:Int = Toast.LENGTH_SHORT)
         fun onDataBackFail(code: Int, errorMsg: String)
     }
 
