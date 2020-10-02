@@ -11,18 +11,16 @@ import java.lang.ref.WeakReference
 abstract class BasePresenter<V : IBaseContract.IBaseView> :
     IBaseContract.IBasePresenter {
 
-    var mView: V? = null
-    private var mWeakReference: WeakReference<V>? = null
+    protected lateinit var mView: V
+    private lateinit var mWeakReference: WeakReference<V>
     fun attachView(v: V) {
         mWeakReference = WeakReference(v)
-        mView = mWeakReference?.get()
+        mView = mWeakReference.get()!!
     }
 
 
     private fun detachView() {
-        mView = null
-        mWeakReference?.clear()
-        mWeakReference = null
+        mWeakReference.clear()
     }
 
 
@@ -40,11 +38,11 @@ abstract class BasePresenter<V : IBaseContract.IBaseView> :
     }
 
     override fun onStop() {
-        mView?.dismissLoadingDialog()
+        mView.dismissLoadingDialog()
     }
 
     override fun onDestroy() {
-        mView?.dismissLoadingDialog()
+        mView.dismissLoadingDialog()
         detachView()
     }
 

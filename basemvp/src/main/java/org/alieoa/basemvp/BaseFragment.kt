@@ -13,7 +13,8 @@ import butterknife.Unbinder
 /**
  * A simple [Fragment] subclass.
  */
-abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> : Fragment() ,IBaseContract.IBaseView{
+abstract class BaseFragment< V : IBaseContract.IBaseView, P : BasePresenter<V>> : Fragment() ,
+    IBaseContract.IBaseView{
     lateinit var mActivity: AppCompatActivity
 
     var mPresenter: P? = null
@@ -28,8 +29,8 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mPresenter = initPresenter()
+        mPresenter?.attachView(this as V)
         lifecycle.addObserver(mPresenter!!)
-//        mPresenter?.attachView(this as V)
     }
 
     override fun onCreateView(

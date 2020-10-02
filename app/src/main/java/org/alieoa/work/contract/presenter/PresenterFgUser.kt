@@ -23,27 +23,29 @@ class PresenterFgUser : BasePresenter<UserContract.IUserView>(), UserContract.IU
     override fun onDestroy() {
         super.onDestroy()
         iUser?.clearAllDisposable()
+        iUser = null
     }
 
     fun doGetUserInfo() {
         iUser?.getUserInfo(object : OnDataBackListener<User> {
             override fun onStar() {
-                mView?.showLoadingDialog()
+                mView.showLoadingDialog()
                 println("====doGetUserInfo() start")
             }
 
             override fun onBeforeFinish() {
-                mView?.dismissLoadingDialog()
+                mView.dismissLoadingDialog()
                 println("====onBeforeResult() start")
             }
 
             override fun onSuccess(t: User) {
-                mView?.showToast(t.toString())
+                mView.showToast(t.toString())
                 println("====doGetUserInfo() onSuccess $t")
             }
 
             override fun onError(code: Int, msg: String) {
                 println("====doGetUserInfo() onError")
+                mView.showToast(msg)
             }
 
             override fun onFinish() {

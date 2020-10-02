@@ -19,7 +19,6 @@ interface IBaseContract {
         fun onDataBackFail(code: Int, errorMsg: String)
     }
 
-    interface IBaseModel {}
     interface IBasePresenter : LifecycleObserver {
         @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
         fun onCreate()
