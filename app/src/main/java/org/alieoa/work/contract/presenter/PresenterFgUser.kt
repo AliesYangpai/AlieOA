@@ -13,21 +13,21 @@ import org.alieoa.work.method.IUserImpl
  * 版本
  */
 class PresenterFgUser : BasePresenter<UserContract.IUserView>(), UserContract.IUserPresenter {
-    private var iUser:IUserImpl?= null
+    private var mIUser: IUserImpl? = null
 
     override fun onCreate() {
         super.onCreate()
-        iUser = IUserImpl()
+        mIUser = IUserImpl()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        iUser?.clearAllDisposable()
-        iUser = null
+        mIUser?.clearAllDisposable()
+        mIUser = null
     }
 
     fun doGetUserInfo() {
-        iUser?.getUserInfo(object : OnDataBackListener<User> {
+        mIUser?.getUserInfo(object : OnDataBackListener<User> {
             override fun onStar() {
                 mView.showLoadingDialog()
                 println("====doGetUserInfo() start")
@@ -52,6 +52,25 @@ class PresenterFgUser : BasePresenter<UserContract.IUserView>(), UserContract.IU
                 println("====doGetUserInfo() onFinish")
             }
         })
+    }
+
+    fun doGetUserInfoByLambda() {
+        mIUser?.getUserInfo(
+            { mView.showLoadingDialog()
+                println("===doGetUserInfoByLambda onStart")
+            },
+            { mView.dismissLoadingDialog()
+                println("===doGetUserInfoByLambda onBeforeFinish")
+            },
+            {
+                mView.showToast(it.toString())
+                println("===doGetUserInfoByLambda onSuccess")
+            },
+            { _, msg ->
+                mView.showToast(msg)
+                println("===doGetUserInfoByLambda onError:$msg")
+            },
+            { println("===doGetUserInfoByLambda onFinish") })
     }
 
 
