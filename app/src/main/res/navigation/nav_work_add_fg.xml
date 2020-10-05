@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_work_add_fg"
+    app:startDestination="@id/workAddFragment">
+    <fragment
+        android:id="@+id/workAddFragment"
+        android:name="org.alieoa.work.ui.fg.WorkAddFragment"
+        android:label="fragment_work_add"
+        tools:layout="@layout/fragment_work_add" />
+</navigation>

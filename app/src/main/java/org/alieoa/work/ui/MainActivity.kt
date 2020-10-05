@@ -1,11 +1,8 @@
 package org.alieoa.work.ui
 
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.widget.Toast
-import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController

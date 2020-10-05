@@ -26,7 +26,8 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
     WorkContract.IWorkView,
     TabLayout.OnTabSelectedListener {
 
-    lateinit var mNavController: NavController
+    private lateinit var mNavControllerWorkChild: NavController
+    private lateinit var mNavControllerWorkAdd: NavController
 
     @BindView(R.id.tv_left)
     lateinit var mTvLeft: TextView
@@ -49,8 +50,8 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
         when (view.id) {
             R.id.iv_right ->
                 Toast.makeText(mActivity.applicationContext, "iv_right", Toast.LENGTH_SHORT).show()
-            R.id.iv_add ->
-                Toast.makeText(mActivity.applicationContext, "iv_add", Toast.LENGTH_SHORT).show()
+            R.id.iv_add -> mNavControllerWorkAdd.navigate(R.id.workAddFragment)
+
         }
     }
 
@@ -63,7 +64,7 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
     }
 
     override fun initView(rootView: View) {
-        mNavController = mActivity.findNavController(R.id.fg_work_child_container)
+        mNavControllerWorkChild = mActivity.findNavController(R.id.fg_work_child_container)
         mTblWorkChild.addOnTabSelectedListener(this)
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_all)))
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.approve)))
@@ -71,6 +72,8 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_client)))
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_notice)))
 
+
+        mNavControllerWorkAdd = mActivity.findNavController(R.id.fg_work_add_container)
     }
 
 
@@ -83,7 +86,7 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
     }
 
     override fun showToast(msg: String, duration: Int) {
-        Toast.makeText(mActivity.applicationContext,msg,duration).show()
+        Toast.makeText(mActivity.applicationContext, msg, duration).show()
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {
@@ -91,11 +94,11 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
         when (tab?.position) {
-            ConstLocalData.TAB_INDEX_0 -> mNavController.navigate(R.id.fragmentWorkChildAll)
-            ConstLocalData.TAB_INDEX_1 -> mNavController.navigate(R.id.fragmentWorkChildApprove)
-            ConstLocalData.TAB_INDEX_2 -> mNavController.navigate(R.id.workChildReportFragment)
-            ConstLocalData.TAB_INDEX_3 -> mNavController.navigate(R.id.workChildClientFragment)
-            ConstLocalData.TAB_INDEX_4 -> mNavController.navigate(R.id.workChildAnnounceFragment)
+            ConstLocalData.TAB_INDEX_0 -> mNavControllerWorkChild.navigate(R.id.fragmentWorkChildAll)
+            ConstLocalData.TAB_INDEX_1 -> mNavControllerWorkChild.navigate(R.id.fragmentWorkChildApprove)
+            ConstLocalData.TAB_INDEX_2 -> mNavControllerWorkChild.navigate(R.id.workChildReportFragment)
+            ConstLocalData.TAB_INDEX_3 -> mNavControllerWorkChild.navigate(R.id.workChildClientFragment)
+            ConstLocalData.TAB_INDEX_4 -> mNavControllerWorkChild.navigate(R.id.workChildAnnounceFragment)
         }
 
     }
