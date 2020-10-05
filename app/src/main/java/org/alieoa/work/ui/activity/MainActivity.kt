@@ -1,4 +1,4 @@
-package org.alieoa.work.ui
+package org.alieoa.work.ui.activity
 
 import android.os.Bundle
 import android.util.Log

@@ -1,6 +1,7 @@
 package org.alieoa.work.ui.fg
 
 
+import android.content.Intent
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -21,13 +22,13 @@ import org.alieoa.work.constant.ConstLocalData
 
 import org.alieoa.work.contract.WorkContract
 import org.alieoa.work.contract.presenter.PresenterFgWork
+import org.alieoa.work.ui.activity.WorkAddActivity
 
 class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
     WorkContract.IWorkView,
     TabLayout.OnTabSelectedListener {
 
     private lateinit var mNavControllerWorkChild: NavController
-    private lateinit var mNavControllerWorkAdd: NavController
 
     @BindView(R.id.tv_left)
     lateinit var mTvLeft: TextView
@@ -50,7 +51,12 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
         when (view.id) {
             R.id.iv_right ->
                 Toast.makeText(mActivity.applicationContext, "iv_right", Toast.LENGTH_SHORT).show()
-            R.id.iv_add -> mNavControllerWorkAdd.navigate(R.id.workAddFragment)
+            R.id.iv_add -> startActivity(Intent().also {
+                it.setClass(
+                    mActivity,
+                    WorkAddActivity::class.java
+                )
+            })
 
         }
     }
@@ -72,8 +78,6 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_client)))
         mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_notice)))
 
-
-        mNavControllerWorkAdd = mActivity.findNavController(R.id.fg_work_add_container)
     }
 
 

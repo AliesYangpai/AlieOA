@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
     <fragment
         android:id="@+id/fg_main_container"
@@ -45,17 +45,5 @@
 <!--        />-->
 
 
-    <fragment
-        android:id="@+id/fg_work_add_container"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:elevation="@dimen/dp_4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:defaultNavHost="true"
-        app:navGraph = "@navigation/nav_work_add_fg"
-        android:name = "androidx.navigation.fragment.NavHostFragment"
-        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

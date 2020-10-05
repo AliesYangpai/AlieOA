@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl_work_add_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:alpha="0.95"
+    tools:context=".ui.activity.WorkAddActivity">
+
+
+
+
+
+
+
+
+
+    <TextView
+        android:id="@+id/tv_go_check_in"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_check_in"
+        android:drawableEnd="@drawable/img_work_check_in"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:drawablePadding="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_15"
+        app:layout_constraintStart_toStartOf="@id/tv_go_publish_announce"
+        app:layout_constraintEnd_toEndOf="@+id/tv_go_publish_announce"
+        app:layout_constraintBottom_toTopOf="@+id/tv_go_publish_announce"
+        />
+
+    <TextView
+        android:id="@+id/tv_go_publish_announce"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_publish_announce"
+        android:drawableEnd="@drawable/img_work_pulish_announce"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_15"
+        app:layout_constraintStart_toStartOf="@+id/tv_go_diary"
+        app:layout_constraintEnd_toEndOf="@+id/tv_go_diary"
+        app:layout_constraintBottom_toTopOf="@id/tv_go_diary"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/tv_go_diary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_diary"
+        android:drawableEnd="@drawable/img_diary"
+        android:gravity="center_vertical"
+        android:textStyle="bold"
+        android:drawablePadding="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_15"
+        app:layout_constraintStart_toStartOf="@+id/tv_go_approval"
+        app:layout_constraintEnd_toEndOf="@+id/tv_go_approval"
+        app:layout_constraintBottom_toTopOf="@+id/tv_go_approval"
+        />
+
+    <TextView
+        android:id="@+id/tv_go_approval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_approval"
+        android:drawableEnd="@drawable/img_work_approve"
+        android:gravity="center_vertical"
+        android:drawablePadding="@dimen/dp_15"
+        android:textStyle="bold"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_60"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
