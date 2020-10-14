@@ -1,7 +1,7 @@
 package org.alieoa.work
 
 import com.google.gson.Gson
-import org.alieoa.work.db.entity.User
+import org.alieoa.work.universal.db.entity.User
 
 /**
  * Created by Administrator on 2020/8/29 0029.

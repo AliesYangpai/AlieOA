@@ -1,4 +1,4 @@
-package org.alieoa.work.db
+package org.alieoa.work.universal.db
 
 import android.content.Context
 import androidx.room.Database
@@ -6,10 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import org.alieoa.work.db.dao.PhoneContactDao
-import org.alieoa.work.db.dao.UserDao
-import org.alieoa.work.db.entity.PhoneContact
-import org.alieoa.work.db.entity.User
+import org.alieoa.work.universal.db.dao.PhoneContactDao
+import org.alieoa.work.universal.db.dao.UserDao
+import org.alieoa.work.universal.db.entity.PhoneContact
+import org.alieoa.work.universal.db.entity.User
 
 @Database(
     entities = [User::class, PhoneContact::class],

@@ -3,8 +3,7 @@ package org.alieoa.work.contract.presenter
 import org.alieoa.basemvp.BasePresenter
 import org.alieoa.work.callback.OnDataBackListener
 import org.alieoa.work.contract.UserContract
-import org.alieoa.work.db.entity.User
-import org.alieoa.work.method.IUser
+import org.alieoa.work.universal.db.entity.User
 import org.alieoa.work.method.IUserImpl
 
 /**
@@ -55,11 +54,12 @@ class PresenterFgUser : BasePresenter<UserContract.IUserView>(), UserContract.IU
     }
 
     fun doGetUserInfoByLambda() {
-        mIUser?.getUserInfo(
-            { mView.showLoadingDialog()
-                println("===doGetUserInfoByLambda onStart")
-            },
-            { mView.dismissLoadingDialog()
+        mIUser?.getUserInfo({
+            mView.showLoadingDialog()
+            println("===doGetUserInfoByLambda onStart")
+        },
+            {
+                mView.dismissLoadingDialog()
                 println("===doGetUserInfoByLambda onBeforeFinish")
             },
             {

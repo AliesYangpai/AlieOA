@@ -1,7 +1,7 @@
-package org.alieoa.work.db.dao
+package org.alieoa.work.universal.db.dao
 
 import androidx.room.*
-import org.alieoa.work.db.entity.User
+import org.alieoa.work.universal.db.entity.User
 
 /**
  * 用户的dao,用于进行用户增删改查

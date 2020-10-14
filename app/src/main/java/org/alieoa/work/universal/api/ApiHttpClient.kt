@@ -1,4 +1,4 @@
-package org.alieoa.work.api
+package org.alieoa.work.universal.api
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
