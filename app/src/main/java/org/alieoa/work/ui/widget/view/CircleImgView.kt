@@ -9,7 +9,7 @@ import android.util.Log
 import android.view.View
 import androidx.core.view.marginRight
 import org.alieoa.work.R
-
+// todo 需要继续改进
 class CircleImgView(var mContext: Context, attributeSet: AttributeSet?, defStyleAttr: Int) :
     View(mContext, attributeSet, defStyleAttr) {
     companion object {
