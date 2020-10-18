@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import org.alieoa.work.R
 import org.alieoa.work.test.TestContact
+import org.alieoa.work.ui.widget.view.CircleImgView
 import org.alieoa.work.universal.function.FunctionText
 
 class TopContactAdapter(var context: Context) : BaseAdapter() {
@@ -43,7 +44,7 @@ class TopContactAdapter(var context: Context) : BaseAdapter() {
         when (convertView) {
             null -> {
                 vh = ViewHolder()
-                view = mInflater.inflate(R.layout.item_top_contact, null)
+                view = mInflater.inflate(R.layout.item_top_contact, parent,false)
                 vh.iv_user_head = view.findViewById(R.id.iv_user_head)
                 vh.tv_contact_name = view.findViewById(R.id.tv_contact_name)
                 view.tag = vh
@@ -53,12 +54,13 @@ class TopContactAdapter(var context: Context) : BaseAdapter() {
             }
         }
         vh.tv_contact_name.text = testContact?.name
+        vh.iv_user_head.doDrawText(mFunctionText.generateTargetName(testContact?.name!!));
         return view!!
     }
 
 
     inner class ViewHolder {
-        lateinit var iv_user_head: ImageView
+        lateinit var iv_user_head: CircleImgView
         lateinit var tv_contact_name: TextView
     }
 

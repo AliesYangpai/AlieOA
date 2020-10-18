@@ -209,7 +209,7 @@
                 />
 
 
-            <ListView
+            <org.alieoa.work.ui.widget.listview.OaListView
                 android:id="@+id/lv_top_contact"
                 android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"

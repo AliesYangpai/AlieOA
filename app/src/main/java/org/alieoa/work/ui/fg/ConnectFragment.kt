@@ -3,7 +3,6 @@ package org.alieoa.work.ui.fg
 
 import android.view.View
 import android.widget.ImageView
-import android.widget.ListView
 import android.widget.TextView
 import android.widget.Toast
 import butterknife.BindView
@@ -15,6 +14,7 @@ import org.alieoa.work.contract.ConnectContract
 import org.alieoa.work.contract.presenter.PresenterFgConnect
 import org.alieoa.work.test.TestValue
 import org.alieoa.work.ui.adapter.TopContactAdapter
+import org.alieoa.work.ui.widget.listview.OaListView
 
 
 class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgConnect>(),
@@ -27,7 +27,7 @@ class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgCo
     lateinit var mIvRight: ImageView
 
     @BindView(R.id.lv_top_contact)
-    lateinit var mLvTopContact: ListView
+    lateinit var mLvTopContact: OaListView
 
     var mTopContactAdapter: TopContactAdapter? = null
 
@@ -87,7 +87,5 @@ class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgCo
 
     override fun onDataBackFail(code: Int, errorMsg: String) {
     }
-
-//R.layout.fragment_connect
 
 }
