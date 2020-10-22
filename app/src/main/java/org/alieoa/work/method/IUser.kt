@@ -1,6 +1,7 @@
 package org.alieoa.work.method
 
 import org.alieoa.work.callback.OnDataBackListener
+import org.alieoa.work.entity.FrequentContact
 import org.alieoa.work.universal.db.entity.User
 
 interface IUser {
@@ -13,6 +14,17 @@ interface IUser {
         onStart: () -> Unit,
         onBeforeFinish: () -> Unit,
         onSuccess: (User) -> Unit,
+        onError: (Int, String) -> Unit,
+        onFinish: () -> Unit
+    )
+
+    /**
+     * 获取常用联系人
+     */
+    fun getFrequentContacts(
+        onStart: () -> Unit,
+        onBeforeFinish: () -> Unit,
+        onSuccess: (ArrayList<FrequentContact>) -> Unit,
         onError: (Int, String) -> Unit,
         onFinish: () -> Unit
     )

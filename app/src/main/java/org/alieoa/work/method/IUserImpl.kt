@@ -5,6 +5,7 @@ import io.reactivex.schedulers.Schedulers
 import org.alieoa.work.universal.api.ApiHttpClient
 import org.alieoa.work.universal.api.UserService
 import org.alieoa.work.callback.OnDataBackListener
+import org.alieoa.work.entity.FrequentContact
 import org.alieoa.work.universal.db.entity.User
 
 class IUserImpl : IBaseMethod(), IUser {
@@ -40,14 +41,39 @@ class IUserImpl : IBaseMethod(), IUser {
                 .doOnTerminate { onBeforeFinish.invoke() }
                 .subscribe({
                     onSuccess.invoke(it)
-                },{
-                    onError.invoke(0,it.localizedMessage)
-                },{
+                }, {
+                    onError.invoke(0, it.localizedMessage)
+                }, {
                     onFinish.invoke()
-                },{
+                }, {
                     onStart.invoke()
                     addDisposable(it)
                 })
+        }
+    }
+
+    /**
+     * 获取常用联系人列表
+     */
+    override fun getFrequentContacts(
+        onStart: () -> Unit,
+        onBeforeFinish: () -> Unit,
+        onSuccess: (ArrayList<FrequentContact>) -> Unit,
+        onError: (Int, String) -> Unit,
+        onFinish: () -> Unit
+    ) {
+        ApiHttpClient.getInstance().generateService(UserService::class.java)?.run {
+            getUserFrequentContacts()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doOnTerminate { onBeforeFinish.invoke() }
+                .subscribe({ onSuccess.invoke(it) },
+                    { onError.invoke(0, it.localizedMessage) },
+                    { onFinish.invoke() },
+                    {
+                        onStart.invoke()
+                        addDisposable(it)
+                    })
         }
     }
 }

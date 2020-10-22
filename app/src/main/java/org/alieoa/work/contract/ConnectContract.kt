@@ -1,6 +1,8 @@
 package org.alieoa.work.contract
 
 import org.alieoa.basemvp.IBaseContract
+import org.alieoa.work.entity.FrequentContact
+import java.util.ArrayList
 
 /**
  * Created by Administrator on 2020/8/29 0029.
@@ -9,8 +11,10 @@ import org.alieoa.basemvp.IBaseContract
  */
 interface ConnectContract {
     interface IConnectView : IBaseContract.IBaseView {
+        fun setDataOnFrequentContacts(it: ArrayList<FrequentContact>?)
     }
 
     interface IConnectPresenter : IBaseContract.IBasePresenter {
+        fun doGetFrequentContacts()
     }
 }

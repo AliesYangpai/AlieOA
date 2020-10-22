@@ -5,21 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
-import android.widget.ImageView
 import android.widget.TextView
 import org.alieoa.work.R
-import org.alieoa.work.test.TestContact
+import org.alieoa.work.entity.FrequentContact
 import org.alieoa.work.ui.widget.view.CircleImgView
 import org.alieoa.work.universal.function.FunctionText
 
 class TopContactAdapter(var context: Context) : BaseAdapter() {
-    var mList: ArrayList<TestContact>? = null
+    var mList: ArrayList<FrequentContact>? = null
         private set
 
     private val mInflater = LayoutInflater.from(context)
     private var mFunctionText = FunctionText()
 
-    fun setData(data: ArrayList<TestContact>?) {
+    fun setData(data: ArrayList<FrequentContact>?) {
         mList = data ?: ArrayList()
         notifyDataSetChanged()
     }
@@ -38,7 +37,7 @@ class TopContactAdapter(var context: Context) : BaseAdapter() {
     override fun getItemId(position: Int): Long = position.toLong()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val testContact = mList?.get(position)
+        val frequentContact = mList?.get(position)
         var vh: ViewHolder? = null
         var view = convertView
         when (convertView) {
@@ -53,8 +52,8 @@ class TopContactAdapter(var context: Context) : BaseAdapter() {
                 vh = view?.tag as ViewHolder
             }
         }
-        vh.tv_contact_name.text = testContact?.name
-        vh.iv_user_head.doDrawText(mFunctionText.generateTargetName(testContact?.name!!));
+        vh.tv_contact_name.text = frequentContact?.name
+        vh.iv_user_head.doDrawText(mFunctionText.generateTargetName(frequentContact?.name!!));
         return view!!
     }
 
