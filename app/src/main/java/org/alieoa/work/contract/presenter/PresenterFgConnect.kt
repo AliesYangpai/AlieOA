@@ -29,7 +29,8 @@ class PresenterFgConnect : BasePresenter<ConnectContract.IConnectView>(),
         mIUser?.getFrequentContacts(
             { mView.showLoadingDialog() },
             { mView.dismissLoadingDialog() },
-            { it -> mView.setDataOnFrequentContacts(it) },
+            { it -> mView.setDataOnFrequentContacts(it)
+            mView.setTopViewFocus()},
             { _, it -> mView.showToast(it) },
             { println("===doGetFrequentContacts onFinish") })
     }

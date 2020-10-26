@@ -71,12 +71,17 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
 
     override fun initView(rootView: View) {
         mNavControllerWorkChild = mActivity.findNavController(R.id.fg_work_child_container)
-        mTblWorkChild.addOnTabSelectedListener(this)
-        mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_all)))
-        mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.approve)))
-        mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_report)))
-        mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_client)))
-        mTblWorkChild.addTab(mTblWorkChild.newTab().setText(getString(R.string.work_notice)))
+
+        mTblWorkChild.let {
+            it.addOnTabSelectedListener(this)
+            it.addTab(it.newTab().setText(getString(R.string.work_all)))
+            it.addTab(it.newTab().setText(getString(R.string.approve)))
+            it.addTab(it.newTab().setText(getString(R.string.work_report)))
+            it.addTab(it.newTab().setText(getString(R.string.work_client)))
+            it.addTab(it.newTab().setText(getString(R.string.work_notice)))
+        }
+
+
 
     }
 

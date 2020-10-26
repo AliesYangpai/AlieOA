@@ -2,6 +2,7 @@ package org.alieoa.basemvp
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +14,13 @@ import butterknife.Unbinder
 /**
  * A simple [Fragment] subclass.
  */
-abstract class BaseFragment< V : IBaseContract.IBaseView, P : BasePresenter<V>> : Fragment() ,
-    IBaseContract.IBaseView{
-    lateinit var mActivity: AppCompatActivity
+abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> : Fragment(),
+    IBaseContract.IBaseView {
+    companion object {
+        const val TAG = "BaseFragment"
+    }
 
+    lateinit var mActivity: AppCompatActivity
     var mPresenter: P? = null
 
     var mIsPrepare: Boolean = false
@@ -38,13 +42,17 @@ abstract class BaseFragment< V : IBaseContract.IBaseView, P : BasePresenter<V>> 
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-      val view = inflater.inflate(layoutId(), container, false)
-        mUnbinder =  ButterKnife.bind(this,view)
+        val view = inflater.inflate(layoutId(), container, false)
+        mUnbinder = ButterKnife.bind(this, view)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        Log.d(
+            TAG,
+            "===onViewCreated fg:${this.javaClass.simpleName}"
+        )
         initView(view)
         initListener()
         onLazyLoad()
@@ -55,19 +63,23 @@ abstract class BaseFragment< V : IBaseContract.IBaseView, P : BasePresenter<V>> 
         mUnbinder?.unbind()
     }
 
-    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
-        super.setUserVisibleHint(isVisibleToUser)
-        if (isVisibleToUser && mIsPrepare) {
-            onLazyLoad()
-        }
+    override fun onHiddenChanged(hidden: Boolean) {
+        super.onHiddenChanged(hidden)
+        if (hidden) onFragmentHidden() else onFragmentResume()
+        Log.d(TAG, "===onHiddenChanged fg:${this.javaClass.simpleName}   hidden:$hidden")
     }
 
     abstract fun layoutId(): Int
     abstract fun initPresenter(): P
-    abstract fun initView(rootView:View)
+    abstract fun initView(rootView: View)
     abstract fun initListener()
     abstract fun onLazyLoad()
+    protected open fun onFragmentHidden() {
 
+    }
+    protected open fun onFragmentResume() {
+
+    }
     override fun showLoadingDialog() {
         //  TODO("Not yet implemented")
     }

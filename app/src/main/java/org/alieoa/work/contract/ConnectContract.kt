@@ -12,6 +12,7 @@ import java.util.ArrayList
 interface ConnectContract {
     interface IConnectView : IBaseContract.IBaseView {
         fun setDataOnFrequentContacts(it: ArrayList<FrequentContact>?)
+        fun setTopViewFocus()
     }
 
     interface IConnectPresenter : IBaseContract.IBasePresenter {

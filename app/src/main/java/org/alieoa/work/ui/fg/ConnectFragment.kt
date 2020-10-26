@@ -9,14 +9,12 @@ import butterknife.BindView
 import butterknife.OnClick
 import org.alieoa.basemvp.BaseFragment
 import org.alieoa.work.R
-
 import org.alieoa.work.contract.ConnectContract
 import org.alieoa.work.contract.presenter.PresenterFgConnect
 import org.alieoa.work.entity.FrequentContact
-import org.alieoa.work.test.TestValue
 import org.alieoa.work.ui.adapter.TopContactAdapter
 import org.alieoa.work.ui.widget.listview.OaListView
-import java.util.ArrayList
+import java.util.*
 
 
 class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgConnect>(),
@@ -83,9 +81,18 @@ class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgCo
         mPresenter?.doGetFrequentContacts()
     }
 
+    override fun onFragmentResume() {
+        super.onFragmentResume()
+    }
 
     override fun setDataOnFrequentContacts(it: ArrayList<FrequentContact>?) {
         mTopContactAdapter?.setData(it)
+    }
+
+    override fun setTopViewFocus() {
+        mTvCommonTitle.isFocusable = true
+        mTvCommonTitle.isFocusableInTouchMode = true
+        mTvCommonTitle.requestFocus()
     }
 
     override fun showToast(msg: String, duration: Int) {
