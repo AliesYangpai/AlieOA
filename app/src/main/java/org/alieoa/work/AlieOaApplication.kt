@@ -11,11 +11,20 @@ import android.os.Bundle
  */
 class AlieOaApplication:Application(),Application.ActivityLifecycleCallbacks {
 
+
     companion object{
         val TAG = AlieOaApplication::class.java.simpleName
+        @Volatile
+        private var mInstance:AlieOaApplication? = null
+        fun getInstance():AlieOaApplication = mInstance?: synchronized(this) {
+            mInstance?:AlieOaApplication().also {
+                mInstance = it
+            }
+        }
     }
     override fun onCreate() {
         super.onCreate()
+        mInstance = this
     }
 
     override fun onActivityPaused(activity: Activity) {

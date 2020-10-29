@@ -2,17 +2,12 @@ package org.alieoa.work.ui.fg
 
 
 import android.content.Intent
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainerView
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import butterknife.BindView
 import butterknife.OnClick
 import com.google.android.material.tabs.TabLayout
@@ -23,6 +18,7 @@ import org.alieoa.work.constant.ConstLocalData
 import org.alieoa.work.contract.WorkContract
 import org.alieoa.work.contract.presenter.PresenterFgWork
 import org.alieoa.work.ui.activity.WorkAddActivity
+import org.alieoa.work.ui.widget.fg.AlieOaFragmentNavigator
 
 class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
     WorkContract.IWorkView,
@@ -70,7 +66,18 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
     }
 
     override fun initView(rootView: View) {
-        mNavControllerWorkChild = mActivity.findNavController(R.id.fg_work_child_container)
+        mActivity.findNavController(R.id.fg_work_child_container).let {
+            it.navigatorProvider.addNavigator(
+                AlieOaFragmentNavigator(
+                    mActivity,
+                    childFragmentManager,
+                    R.id.fg_work_child_container
+                )
+            )
+            it.setGraph(R.navigation.nav_work_child_fg)
+            mNavControllerWorkChild = it
+        }
+
 
         mTblWorkChild.let {
             it.addOnTabSelectedListener(this)
@@ -80,9 +87,6 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
             it.addTab(it.newTab().setText(getString(R.string.work_client)))
             it.addTab(it.newTab().setText(getString(R.string.work_notice)))
         }
-
-
-
     }
 
 

@@ -10,7 +10,5 @@ import org.alieoa.work.contract.ChatMsgContract
  * 版本
  */
 class PresenterFgApp : BasePresenter<AppContract.IAppView>() ,AppContract.IAppPresenter{
-//    val mMainModel: MainModel by lazy {
-//        MainModel()
-//    }
+
 }

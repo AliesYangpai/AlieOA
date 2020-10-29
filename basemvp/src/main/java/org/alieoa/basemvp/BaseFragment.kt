@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import butterknife.ButterKnife
 import butterknife.Unbinder
@@ -67,6 +68,10 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
         super.onHiddenChanged(hidden)
         if (hidden) onFragmentHidden() else onFragmentResume()
         Log.d(TAG, "===onHiddenChanged fg:${this.javaClass.simpleName}   hidden:$hidden")
+    }
+
+    override fun showToast(msg: String, duration: Int) {
+        Toast.makeText(mActivity.applicationContext, msg, duration).show()
     }
 
     abstract fun layoutId(): Int
