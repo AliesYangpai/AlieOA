@@ -1,14 +1,15 @@
 package org.alieoa.basemvp
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import butterknife.ButterKnife
 import butterknife.Unbinder
 
@@ -74,6 +75,17 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
         Toast.makeText(mActivity.applicationContext, msg, duration).show()
     }
 
+    fun getSwipeRefreshColor(): IntArray = intArrayOf(
+//        android.R.color.holo_blue_light,
+//        android.R.color.holo_red_light,
+//        android.R.color.holo_orange_light,
+//        android.R.color.holo_green_light
+        Color.parseColor("#ff33b5e5"),
+        Color.parseColor("#ffff4444"),
+        Color.parseColor("#ffffbb33"),
+        Color.parseColor("#ff99cc00")
+    )
+
     abstract fun layoutId(): Int
     abstract fun initPresenter(): P
     abstract fun initView(rootView: View)
@@ -82,9 +94,11 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
     protected open fun onFragmentHidden() {
 
     }
+
     protected open fun onFragmentResume() {
 
     }
+
     override fun showLoadingDialog() {
         //  TODO("Not yet implemented")
     }

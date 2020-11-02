@@ -8,6 +8,7 @@ import android.os.Bundle
  * Created by Administrator on 2020/8/29 0029.
  * 类描述
  * 版本
+ * //kotlinx.android.synthetic.main.布局名称.*
  */
 class AlieOaApplication:Application(),Application.ActivityLifecycleCallbacks {
 

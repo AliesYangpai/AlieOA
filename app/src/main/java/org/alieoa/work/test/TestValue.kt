@@ -1,5 +1,7 @@
 package org.alieoa.work.test
 
+import org.alieoa.work.entity.ApproveBean
+
 class TestValue {
     companion object {
         fun getTestContacts(): ArrayList<TestContact> {
@@ -26,5 +28,14 @@ class TestValue {
             testContacts.add(TestContact("王一"))
             return testContacts
         }
+
+        fun getApproveList(): ArrayList<ApproveBean> =
+            ArrayList<ApproveBean>().also {
+                it.add(ApproveBean())
+                it.add(ApproveBean())
+                it.add(ApproveBean())
+                it.add(ApproveBean())
+                it.add(ApproveBean())
+            }
     }
 }

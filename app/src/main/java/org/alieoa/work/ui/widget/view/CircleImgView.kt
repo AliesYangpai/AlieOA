@@ -9,8 +9,9 @@ import android.util.Log
 import android.view.View
 import androidx.core.view.marginRight
 import org.alieoa.work.R
+
 // todo 需要继续改进
-class CircleImgView(var mContext: Context, attributeSet: AttributeSet?, defStyleAttr: Int) :
+class CircleImgView(private var mContext: Context, attributeSet: AttributeSet?, defStyleAttr: Int) :
     View(mContext, attributeSet, defStyleAttr) {
     companion object {
         const val TAG = "CircleImgView"
@@ -19,17 +20,17 @@ class CircleImgView(var mContext: Context, attributeSet: AttributeSet?, defStyle
     constructor(context: Context, attributeSet: AttributeSet) : this(context, attributeSet, 0)
     constructor(context: Context) : this(context, null, 0)
 
-    var mPaintBg: Paint? = null
-    var mPaintText: Paint? = null
-    var mCurrentBgColor = mContext.applicationContext.getColor(R.color.blue_bottom_circle)
-    var mCurrentTextColor = mContext.applicationContext.getColor(R.color.background)
-    var mCurrentText = "西瓜"
+    private var mPaintBg: Paint? = null
+    private var mPaintText: Paint? = null
+    private var mCurrentBgColor = mContext.applicationContext.getColor(R.color.blue_bottom_circle)
+    private var mCurrentTextColor = mContext.applicationContext.getColor(R.color.background)
+    private var mCurrentText = "西瓜"
 
 
-    var mWidth = 0F
-    var mHeight = 0F
-    var mRadius = 0F
-    var mRectTextBound: Rect? = null
+    private var mWidth = 0F
+    private var mHeight = 0F
+    private var mRadius = 0F
+    private var mRectTextBound: Rect? = null
 
     init {
         mPaintBg = Paint().also {
