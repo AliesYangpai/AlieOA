@@ -1,4 +1,4 @@
-package org.alieoa.work.universal.api
+package org.alieoa.work.universal.api.service
 
 import io.reactivex.Observable
 import org.alieoa.work.entity.FrequentContact

@@ -7,6 +7,7 @@ import org.alieoa.work.R
 import org.alieoa.work.contract.WorkChildApproveContract
 import org.alieoa.work.contract.presenter.PresenterFgWorkChildApprove
 import kotlinx.android.synthetic.main.fragment_work_child_approve.*
+import org.alieoa.work.entity.ApproveBean
 import org.alieoa.work.test.TestValue
 import org.alieoa.work.ui.adapter.WorkChildApproveAdapter
 
@@ -36,7 +37,12 @@ class FragmentWorkChildApprove :
     }
 
     override fun onLazyLoad() {
-        mWorkChildApproveAdapter.mData = TestValue.getApproveList()
+//        mWorkChildApproveAdapter.mData = TestValue.getApproveList()
+        mPresenter?.doGetApproves()
+    }
+
+    override fun setDataOnApproves(list: ArrayList<ApproveBean>) {
+        mWorkChildApproveAdapter.mData = list
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {
