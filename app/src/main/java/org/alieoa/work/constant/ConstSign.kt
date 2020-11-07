@@ -14,7 +14,7 @@ object ConstSign {
     const val COLON = ":"
     const val SPACE = " "
     const val UNDER_LINE = "_"
-    const val JSON_ARRY_START = "[" //json数组开头的字符串
+    const val JSON_ARRAY_START = "[" //json数组开头的字符串
     const val JSON_OBJ_START = "{" //json对象开头的字符串
     const val JSON_OBJ_END = "}" //json对象结束的字符串
     const val EQUAL_SIGN = "=" //等号

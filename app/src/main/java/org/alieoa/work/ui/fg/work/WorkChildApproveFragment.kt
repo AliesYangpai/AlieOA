@@ -8,7 +8,6 @@ import org.alieoa.work.contract.WorkChildApproveContract
 import org.alieoa.work.contract.presenter.PresenterFgWorkChildApprove
 import kotlinx.android.synthetic.main.fragment_work_child_approve.*
 import org.alieoa.work.entity.ApproveBean
-import org.alieoa.work.test.TestValue
 import org.alieoa.work.ui.adapter.WorkChildApproveAdapter
 
 class FragmentWorkChildApprove :
@@ -24,7 +23,7 @@ class FragmentWorkChildApprove :
     override fun initView(rootView: View) {
         mSrlFresh.setColorSchemeColors(*getSwipeRefreshColor())
         mRvList.apply {
-            mWorkChildApproveAdapter = WorkChildApproveAdapter(R.layout.item_fg_work_child_approve)
+            mWorkChildApproveAdapter = WorkChildApproveAdapter()
             layoutManager = LinearLayoutManager(mActivity)
             adapter = mWorkChildApproveAdapter
         }
@@ -37,7 +36,6 @@ class FragmentWorkChildApprove :
     }
 
     override fun onLazyLoad() {
-//        mWorkChildApproveAdapter.mData = TestValue.getApproveList()
         mPresenter?.doGetApproves()
     }
 

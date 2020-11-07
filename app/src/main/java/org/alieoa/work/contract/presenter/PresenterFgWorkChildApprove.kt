@@ -8,7 +8,7 @@ class PresenterFgWorkChildApprove : BasePresenter<WorkChildApproveContract.IWork
     WorkChildApproveContract.IWorkChildApprovePresenter {
 
 
-    var mIApprove: IApproveImpl? = null
+    private var mIApprove: IApproveImpl? = null
     override fun onCreate() {
         super.onCreate()
         mIApprove = IApproveImpl()
@@ -19,7 +19,7 @@ class PresenterFgWorkChildApprove : BasePresenter<WorkChildApproveContract.IWork
         mIApprove?.clearAllDisposable()
         mIApprove = null
     }
-    // todo need server available
+
     override fun doGetApproves() {
         mIApprove?.getApproves(
             { mView.showLoadingDialog() },

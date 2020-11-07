@@ -1,11 +1,11 @@
 package org.alieoa.work.entity
 
 data class ApproveBean(
-    var tag: Int = 0,
-    var title: String? = null,
     var time: String? = null,
-    var name: String? = null,
+    var approveName: String? = null,
     var describe: String? = null,
-    var avatar: String? = null,
-    var describeTitle: String? = null
+    var approveAvatar: String? = null,
+    var approveType:Short = 0,
+    var approveCommonTip:String?= null,
+    var approveTypeTip  : String? = null
 )
