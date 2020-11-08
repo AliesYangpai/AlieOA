@@ -7,8 +7,10 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.widget.ContentLoadingProgressBar
 import androidx.fragment.app.Fragment
 import butterknife.ButterKnife
 import butterknife.Unbinder
@@ -99,11 +101,15 @@ abstract class BaseFragment<V : IBaseContract.IBaseView, P : BasePresenter<V>> :
 
     }
 
+
+
     override fun showLoadingDialog() {
         //  TODO("Not yet implemented")
+
     }
 
     override fun dismissLoadingDialog() {
         // TODO("Not yet implemented")
     }
+
 }

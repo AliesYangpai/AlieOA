@@ -21,7 +21,12 @@ class FragmentWorkChildApprove :
     override fun initPresenter(): PresenterFgWorkChildApprove = PresenterFgWorkChildApprove()
 
     override fun initView(rootView: View) {
-        mSrlFresh.setColorSchemeColors(*getSwipeRefreshColor())
+        mSrlFresh.apply {
+            setColorSchemeColors(*getSwipeRefreshColor())
+            setOnRefreshListener {
+                mPresenter?.doGetApprovesByPull()
+            }
+        }
         mRvList.apply {
             mWorkChildApproveAdapter = WorkChildApproveAdapter()
             layoutManager = LinearLayoutManager(mActivity)
@@ -30,9 +35,6 @@ class FragmentWorkChildApprove :
     }
 
     override fun initListener() {
-        mSrlFresh.setOnRefreshListener {
-            showToast("下拉刷新")
-        }
     }
 
     override fun onLazyLoad() {
@@ -41,6 +43,18 @@ class FragmentWorkChildApprove :
 
     override fun setDataOnApproves(list: ArrayList<ApproveBean>) {
         mWorkChildApproveAdapter.mData = list
+    }
+
+    override fun showFreshLoading() {
+        mSrlFresh.isRefreshing = true
+    }
+
+    override fun dismissFreshLoading(delayMillis:Long) {
+        mSrlFresh.apply {
+            if (isRefreshing) {
+                postDelayed({ isRefreshing = false }, delayMillis)
+            }
+        }
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {

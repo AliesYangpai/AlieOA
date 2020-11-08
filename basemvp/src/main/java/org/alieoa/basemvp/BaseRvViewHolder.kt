@@ -9,33 +9,21 @@ open class BaseRvViewHolder(private var convertView: View) : RecyclerView.ViewHo
 
     var mViews = HashMap<Int, View>()
 
-    fun setText(viewId: Int, str: String?): BaseRvViewHolder {
-
-        (getView(viewId) as TextView).run {
-            text = str
-        }
-        return this
+    fun setText(viewId: Int, str: String?): BaseRvViewHolder = (getView(viewId) as TextView).run {
+        text = str
+        this@BaseRvViewHolder
     }
 
-    fun setText(viewId: Int, resId: Int): BaseRvViewHolder {
-        (getView(viewId) as TextView).run {
-            setText(resId)
-        }
-        return this
+    fun setText(viewId: Int, resId: Int): BaseRvViewHolder = (getView(viewId) as TextView).run {
+        setText(resId)
+        this@BaseRvViewHolder
     }
 
-
-    fun setImageResource(viewId: Int, resId: Int): BaseRvViewHolder {
+    fun setImageResource(viewId: Int, resId: Int): BaseRvViewHolder =
         (getView(viewId) as ImageView).run {
             setImageResource(resId)
+            this@BaseRvViewHolder
         }
-        return this
-    }
-
-
-//    fun <T : View> getView(viewId: Int): T {
-//        return convertView.findViewById(viewId) as T
-//    }
 
     fun <T : View> getView(viewId: Int): T = mViews.let {
         var view = it[viewId]
