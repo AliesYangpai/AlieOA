@@ -5,9 +5,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-open class BaseRvViewHolder(private var convertView: View) : RecyclerView.ViewHolder(convertView) {
+open class BaseRvViewHolder(private var convertView: View) :
+    RecyclerView.ViewHolder(convertView) {
 
-    var mViews = HashMap<Int, View>()
+    private var mViews = HashMap<Int, View>()
 
     fun setText(viewId: Int, str: String?): BaseRvViewHolder = (getView(viewId) as TextView).run {
         text = str
@@ -31,5 +32,12 @@ open class BaseRvViewHolder(private var convertView: View) : RecyclerView.ViewHo
             view = targetView
         }
         view as T
+    }
+
+    fun <M> addOnChildClick(viewId: Int,m:M): BaseRvViewHolder = (getView(viewId) as View).run {
+        setOnClickListener {
+
+        }
+        this@BaseRvViewHolder
     }
 }

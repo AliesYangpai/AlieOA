@@ -35,6 +35,9 @@ class FragmentWorkChildApprove :
     }
 
     override fun initListener() {
+        mWorkChildApproveAdapter.setOnItemClick { approveBean, _ ->
+            showToast(approveBean.approveName!!)
+        }
     }
 
     override fun onLazyLoad() {
@@ -49,7 +52,7 @@ class FragmentWorkChildApprove :
         mSrlFresh.isRefreshing = true
     }
 
-    override fun dismissFreshLoading(delayMillis:Long) {
+    override fun dismissFreshLoading(delayMillis: Long) {
         mSrlFresh.apply {
             if (isRefreshing) {
                 postDelayed({ isRefreshing = false }, delayMillis)

@@ -8,6 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class BaseRvAdapter<T> : RecyclerView.Adapter<BaseRvViewHolder>() {
 
 
+    private var onItemClick: ((T, Int) -> Unit)? = null
+
+    var onItemClickClick:((T,Int,Int)->Unit)? = null
+
 
     var mData: ArrayList<T>? = null
         set(value) {
@@ -30,6 +34,9 @@ abstract class BaseRvAdapter<T> : RecyclerView.Adapter<BaseRvViewHolder>() {
         )
 
     override fun onBindViewHolder(holder: BaseRvViewHolder, position: Int) {
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(mData!![position],position)
+        }
         convert(holder, mData!![position])
     }
 
@@ -45,4 +52,21 @@ abstract class BaseRvAdapter<T> : RecyclerView.Adapter<BaseRvViewHolder>() {
     abstract fun getLayoutId(): Int
 
     abstract fun convert(holder: BaseRvViewHolder, data: T)
+
+
+    /**
+     * item点击事件
+     */
+    fun setOnItemClick(block: ((T, Int) -> Unit)?){
+        onItemClick = block
+    }
+
+    /**
+     * 子控件点击事件
+     */
+    fun setOnItemChildClick(block: ((T, Int,Int) -> Unit)?) {
+        onItemClickClick = block
+    }
+
+
 }
