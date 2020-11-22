@@ -107,8 +107,8 @@ class WorkFragment : BaseFragment<WorkContract.IWorkView, PresenterFgWork>(),
 
     override fun onTabSelected(tab: TabLayout.Tab?) {
         when (tab?.position) {
-            ConstLocalData.TAB_INDEX_0 -> mNavControllerWorkChild.navigate(R.id.fragmentWorkChildAll)
-            ConstLocalData.TAB_INDEX_1 -> mNavControllerWorkChild.navigate(R.id.fragmentWorkChildApprove)
+            ConstLocalData.TAB_INDEX_0 -> mNavControllerWorkChild.navigate(R.id.workChildAllFragment)
+            ConstLocalData.TAB_INDEX_1 -> mNavControllerWorkChild.navigate(R.id.workChildApproveFragment)
             ConstLocalData.TAB_INDEX_2 -> mNavControllerWorkChild.navigate(R.id.workChildReportFragment)
             ConstLocalData.TAB_INDEX_3 -> mNavControllerWorkChild.navigate(R.id.workChildClientFragment)
             ConstLocalData.TAB_INDEX_4 -> mNavControllerWorkChild.navigate(R.id.workChildAnnounceFragment)

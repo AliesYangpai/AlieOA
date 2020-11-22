@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.fragment_work_child_approve.*
 import org.alieoa.work.entity.ApproveBean
 import org.alieoa.work.ui.adapter.WorkChildApproveAdapter
 
-class FragmentWorkChildApprove :
+class WorkChildApproveFragment :
     BaseFragment<WorkChildApproveContract.IWorkChildApproveView, PresenterFgWorkChildApprove>(),
     WorkChildApproveContract.IWorkChildApproveView {
 

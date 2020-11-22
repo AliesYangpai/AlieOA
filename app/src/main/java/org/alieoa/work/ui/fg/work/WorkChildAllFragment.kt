@@ -10,7 +10,7 @@ import org.alieoa.work.contract.presenter.PresenterFgWorkChildAll
 /**
  * 全部界面
  */
-class FragmentWorkChildAll :
+class WorkChildAllFragment :
     BaseFragment<WorkChildAllContract.IWorkChildAllView, PresenterFgWorkChildAll>(),
     WorkChildAllContract.IWorkChildAllView {
 
