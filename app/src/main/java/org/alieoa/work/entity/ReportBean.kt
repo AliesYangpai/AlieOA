@@ -5,7 +5,7 @@ data class ReportBean (
     var name: String? = null,
     var describe: String? = null,
     var avatar: String? = null,
-    var type:Short = 0,
+    var type:Short = 0, // 代表是
     var commonTip:String?= null,
     var typeTip  : String? = null
 )

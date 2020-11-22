@@ -3,7 +3,7 @@ package org.alieoa.work.contract.presenter
 import org.alieoa.basemvp.BasePresenter
 import org.alieoa.work.constant.ConstLocalData
 import org.alieoa.work.contract.WorkChildApproveContract
-import org.alieoa.work.method.IApproveImpl
+import org.alieoa.work.method.impl.IApproveImpl
 
 class PresenterFgWorkChildApprove : BasePresenter<WorkChildApproveContract.IWorkChildApproveView>(),
     WorkChildApproveContract.IWorkChildApprovePresenter {

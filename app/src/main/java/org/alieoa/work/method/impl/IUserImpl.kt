@@ -1,4 +1,4 @@
-package org.alieoa.work.method
+package org.alieoa.work.method.impl
 
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -6,6 +6,8 @@ import org.alieoa.work.universal.api.ApiHttpClient
 import org.alieoa.work.universal.api.service.UserService
 import org.alieoa.work.callback.OnDataBackListener
 import org.alieoa.work.entity.FrequentContact
+import org.alieoa.work.method.IBaseMethod
+import org.alieoa.work.method.IUser
 import org.alieoa.work.universal.db.entity.User
 
 class IUserImpl : IBaseMethod(), IUser {

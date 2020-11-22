@@ -4,7 +4,7 @@ import org.alieoa.basemvp.BasePresenter
 import org.alieoa.work.callback.OnDataBackListener
 import org.alieoa.work.contract.UserContract
 import org.alieoa.work.universal.db.entity.User
-import org.alieoa.work.method.IUserImpl
+import org.alieoa.work.method.impl.IUserImpl
 
 /**
  * Created by Administrator on 2020/8/29 0029.

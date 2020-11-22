@@ -1,5 +1,6 @@
 package org.alieoa.work.ui.adapter
 
+import com.bumptech.glide.Glide
 import org.alieoa.basemvp.BaseRvAdapter
 import org.alieoa.basemvp.BaseRvViewHolder
 import org.alieoa.work.R
@@ -12,9 +13,13 @@ class WorkChildReportAdapter: BaseRvAdapter<ReportBean>() {
         data.let {
             holder.setText(R.id.tv_work_tip,data.typeTip)
                 .setText(R.id.tv_name,data.name)
-                .setText(R.id.tv_work_content_info,data.describe)
+                .setText(R.id.tv_content_title,data.commonTip)
+                .setText(R.id.tv_content_info,data.describe)
                 .setText(R.id.tv_time,data.time)
-                .setImageResource(R.id.iv_user_head,R.drawable.img_share_to)
+            Glide.with(holder.itemView.context)
+                .load(it.avatar)
+                .placeholder(R.mipmap.ic_launcher)
+                .into(holder.getView(R.id.iv_user_head))
         }
     }
 }

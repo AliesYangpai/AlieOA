@@ -1,11 +1,15 @@
 package org.alieoa.work.ui.fg.work
 
 import android.view.View
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import org.alieoa.basemvp.BaseFragment
 import org.alieoa.work.R
 import org.alieoa.work.contract.WorkChildReportContract
 import org.alieoa.work.contract.presenter.PresenterFgWorkChildReport
 import kotlinx.android.synthetic.main.fragment_work_child_report.*
+import org.alieoa.work.entity.ReportBean
+import org.alieoa.work.ui.adapter.WorkChildReportAdapter
 
 /**
  * 汇报的fragment
@@ -13,6 +17,9 @@ import kotlinx.android.synthetic.main.fragment_work_child_report.*
 class WorkChildReportFragment :
     BaseFragment<WorkChildReportContract.IWorkChildReportView, PresenterFgWorkChildReport>(),
     WorkChildReportContract.IWorkChildReportView {
+
+    lateinit var mWorkChildReportAdapter: WorkChildReportAdapter
+
     override fun layoutId(): Int = R.layout.fragment_work_child_report
 
     override fun initPresenter(): PresenterFgWorkChildReport = PresenterFgWorkChildReport()
@@ -20,21 +27,41 @@ class WorkChildReportFragment :
     override fun initView(rootView: View) {
         mSrlFresh.apply {
             setColorSchemeColors(*getSwipeRefreshColor())
-            setOnRefreshListener{
-                // TODO
+            setOnRefreshListener {
+                mPresenter?.doGetReportsByPull()
             }
         }
         mRvList.apply {
-
+            mWorkChildReportAdapter = WorkChildReportAdapter()
+            layoutManager = LinearLayoutManager(mActivity)
+            adapter = mWorkChildReportAdapter;
         }
     }
 
     override fun initListener() {
-        //  TODO("Not yet implemented")
+        mWorkChildReportAdapter.setOnItemClick { reportBean, _ ->
+            showToast(reportBean.name!!)
+        }
     }
 
     override fun onLazyLoad() {
-        //  TODO("Not yet implemented")
+        mPresenter?.doGetReports()
+    }
+
+    override fun setDataOnReports(list: ArrayList<ReportBean>) {
+        mWorkChildReportAdapter.mData = list
+    }
+
+    override fun showFreshLoading() {
+        mSrlFresh.isRefreshing = true
+    }
+
+    override fun dismissFreshLoading(delayMillis: Long) {
+        mSrlFresh.apply {
+            if (isRefreshing) {
+                postDelayed({ isRefreshing = false }, delayMillis)
+            }
+        }
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {
