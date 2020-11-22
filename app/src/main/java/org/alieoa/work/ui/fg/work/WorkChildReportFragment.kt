@@ -1,17 +1,14 @@
 package org.alieoa.work.ui.fg.work
 
-import androidx.fragment.app.Fragment
 import android.view.View
 import org.alieoa.basemvp.BaseFragment
 import org.alieoa.work.R
 import org.alieoa.work.contract.WorkChildReportContract
 import org.alieoa.work.contract.presenter.PresenterFgWorkChildReport
-
+import kotlinx.android.synthetic.main.fragment_work_child_report.*
 
 /**
- * A simple [Fragment] subclass.
- * Use the [WorkChildReportFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * 汇报的fragment
  */
 class WorkChildReportFragment :
     BaseFragment<WorkChildReportContract.IWorkChildReportView, PresenterFgWorkChildReport>(),
@@ -21,7 +18,15 @@ class WorkChildReportFragment :
     override fun initPresenter(): PresenterFgWorkChildReport = PresenterFgWorkChildReport()
 
     override fun initView(rootView: View) {
-        //    TODO("Not yet implemented")
+        mSrlFresh.apply {
+            setColorSchemeColors(*getSwipeRefreshColor())
+            setOnRefreshListener{
+                // TODO
+            }
+        }
+        mRvList.apply {
+
+        }
     }
 
     override fun initListener() {

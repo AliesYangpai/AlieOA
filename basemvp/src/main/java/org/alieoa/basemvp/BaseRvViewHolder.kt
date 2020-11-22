@@ -36,7 +36,6 @@ open class BaseRvViewHolder(private var convertView: View) :
 
     fun <M> addOnChildClick(viewId: Int,m:M): BaseRvViewHolder = (getView(viewId) as View).run {
         setOnClickListener {
-
         }
         this@BaseRvViewHolder
     }

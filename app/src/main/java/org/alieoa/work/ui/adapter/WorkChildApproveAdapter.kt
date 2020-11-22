@@ -1,7 +1,5 @@
 package org.alieoa.work.ui.adapter
 
-import android.widget.ImageView
-import android.widget.TextView
 import com.bumptech.glide.Glide
 import org.alieoa.basemvp.BaseRvAdapter
 import org.alieoa.basemvp.BaseRvViewHolder
@@ -10,7 +8,6 @@ import org.alieoa.work.entity.ApproveBean
 
 class WorkChildApproveAdapter : BaseRvAdapter<ApproveBean>() {
 
-//    private var onItemClick: ((ApproveBean,Int) -> Unit)? = null
 
     override fun getLayoutId(): Int = R.layout.item_fg_work_child_approve
 
@@ -30,9 +27,6 @@ class WorkChildApproveAdapter : BaseRvAdapter<ApproveBean>() {
         }
     }
 
-//    fun setOnItemClick(onClick: ((ApproveBean,Int) -> Unit)?) {
-//        onItemClick = onClick
-//    }
 
 
 }

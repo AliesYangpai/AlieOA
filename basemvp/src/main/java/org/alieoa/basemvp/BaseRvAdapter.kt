@@ -1,7 +1,6 @@
 package org.alieoa.basemvp
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
@@ -10,7 +9,7 @@ abstract class BaseRvAdapter<T> : RecyclerView.Adapter<BaseRvViewHolder>() {
 
     private var onItemClick: ((T, Int) -> Unit)? = null
 
-    var onItemClickClick:((T,Int,Int)->Unit)? = null
+    var onItemClickClick: ((T, Int, Int) -> Unit)? = null
 
 
     var mData: ArrayList<T>? = null
@@ -30,12 +29,11 @@ abstract class BaseRvAdapter<T> : RecyclerView.Adapter<BaseRvViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseRvViewHolder =
         BaseRvViewHolder(
-            LayoutInflater.from(parent.context).inflate(getLayoutId(), parent, false)
-        )
+            LayoutInflater.from(parent.context).inflate(getLayoutId(), parent, false))
 
     override fun onBindViewHolder(holder: BaseRvViewHolder, position: Int) {
         holder.itemView.setOnClickListener {
-            onItemClick?.invoke(mData!![position],position)
+            onItemClick?.invoke(mData!![position], position)
         }
         convert(holder, mData!![position])
     }
@@ -57,14 +55,14 @@ abstract class BaseRvAdapter<T> : RecyclerView.Adapter<BaseRvViewHolder>() {
     /**
      * item点击事件
      */
-    fun setOnItemClick(block: ((T, Int) -> Unit)?){
+    fun setOnItemClick(block: ((T, Int) -> Unit)?) {
         onItemClick = block
     }
 
     /**
      * 子控件点击事件
      */
-    fun setOnItemChildClick(block: ((T, Int,Int) -> Unit)?) {
+    fun setOnItemChildClick(block: ((T, Int, Int) -> Unit)?) {
         onItemClickClick = block
     }
 
