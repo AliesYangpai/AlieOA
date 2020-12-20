@@ -39,6 +39,7 @@ class PresenterFgUser : BasePresenter<UserContract.IUserView>(), UserContract.IU
 
             override fun onSuccess(t: User) {
                 mView.showToast(t.toString())
+                mView.setDataOnUserInfo(t)
                 println("====doGetUserInfo() onSuccess $t")
             }
 
@@ -63,7 +64,7 @@ class PresenterFgUser : BasePresenter<UserContract.IUserView>(), UserContract.IU
                 println("===doGetUserInfoByLambda onBeforeFinish")
             },
             {
-                mView.showToast(it.toString())
+                mView.setDataOnUserInfo(it)
                 println("===doGetUserInfoByLambda onSuccess")
             },
             { _, msg ->

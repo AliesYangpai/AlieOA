@@ -61,6 +61,8 @@ data class User(@PrimaryKey(autoGenerate = true) var id: Int) {
     @ColumnInfo(name = "userPoint")
     var userPoint: Int = 0
 
+    @ColumnInfo(name = "userCompany")
+    var company: String? = null
 
     override fun toString(): String {
         return "User(id=$id, userId=$userId, regionId=$regionId, uuId=$uuId, cardType=$cardType, phone=$phone, userName=$userName, avatar=$avatar, fullName=$fullName, nickName=$nickName, identifyCard=$identifyCard, icNumber=$icNumber, balance=$balance, createTime=$createTime, lastLoginTime=$lastLoginTime, currentLoginTime=$currentLoginTime, userLevel=$userLevel, userPoint=$userPoint)"

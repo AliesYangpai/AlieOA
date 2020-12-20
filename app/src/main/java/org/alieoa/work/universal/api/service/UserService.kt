@@ -6,10 +6,9 @@ import org.alieoa.work.universal.db.entity.User
 import retrofit2.http.GET
 
 interface UserService {
-
-    @GET("alieoa/user")
+    @GET("alieoa/user/userinfo")
     fun getUserInfo(): Observable<User>
 
-    @GET("alieoa/user/frequentcontact")
+    @GET("alieoa/user/frequentcontacts")
     fun getUserFrequentContacts():Observable<ArrayList<FrequentContact>>
 }

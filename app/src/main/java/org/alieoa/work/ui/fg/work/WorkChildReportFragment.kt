@@ -1,7 +1,6 @@
 package org.alieoa.work.ui.fg.work
 
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.alieoa.basemvp.BaseFragment
 import org.alieoa.work.R
@@ -18,7 +17,7 @@ class WorkChildReportFragment :
     BaseFragment<WorkChildReportContract.IWorkChildReportView, PresenterFgWorkChildReport>(),
     WorkChildReportContract.IWorkChildReportView {
 
-    lateinit var mWorkChildReportAdapter: WorkChildReportAdapter
+    private lateinit var mWorkChildReportAdapter: WorkChildReportAdapter
 
     override fun layoutId(): Int = R.layout.fragment_work_child_report
 

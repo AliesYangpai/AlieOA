@@ -4,6 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
+/**
+ * Rv adapter的基础类
+ * 主要点击方法:
+ * 1.setOnItemClick()  列表项的点击事件
+ */
 abstract class BaseRvAdapter<T> : RecyclerView.Adapter<BaseRvViewHolder>() {
 
 
