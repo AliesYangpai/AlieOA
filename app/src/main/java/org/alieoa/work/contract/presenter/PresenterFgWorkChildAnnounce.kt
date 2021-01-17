@@ -24,20 +24,20 @@ class PresenterFgWorkChildAnnounce :
         mIAnnounce = null
     }
 
+    /**
+     * 获取公告
+     */
     override fun doGetAnnounces() {
-        mIAnnounce?.getAnnounces(
-            { mView.showFreshLoading() },
-            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_1000) },
-            { mView.setDataOnAnnounces(it) },
+        mIAnnounce?.getAnnounces({ mView.showFreshLoading() },
+            { it -> mView.setDataOnAnnounces(it) },
             { _, msg -> mView.showToast(msg) },
-            { println("===doGetAnnounces onFinish") })
+            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_1000) })
     }
 
     override fun doGetAnnouncesByPull() {
         mIAnnounce?.getAnnounces({},
-            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_0) },
-            { mView.setDataOnAnnounces(it) },
+            { it -> mView.setDataOnAnnounces(it) },
             { _, msg -> mView.showToast(msg) },
-            { println("===doGetApprovesByPull onFinish") })
+            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_0) })
     }
 }

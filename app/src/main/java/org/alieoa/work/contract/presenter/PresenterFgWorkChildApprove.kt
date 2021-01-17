@@ -24,17 +24,16 @@ class PresenterFgWorkChildApprove : BasePresenter<WorkChildApproveContract.IWork
     override fun doGetApproves() {
         mIApprove?.getApproves(
             { mView.showFreshLoading() },
-            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_1000) },
-            { mView.setDataOnApproves(it) },
+            { it -> mView.setDataOnApproves(it) },
             { _, msg -> mView.showToast(msg) },
-            { println("===doGetApproves onFinish") })
+            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_1000) })
     }
 
     override fun doGetApprovesByPull() {
-        mIApprove?.getApproves({},
-            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_0) },
-            { mView.setDataOnApproves(it) },
-            {_,msg->mView.showToast(msg)},
-            { println("===doGetApprovesByPull onFinish")})
+        mIApprove?.getApproves(
+            {},
+            { it -> mView.setDataOnApproves(it) },
+            { _, msg -> mView.showToast(msg) },
+            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_0) })
     }
 }

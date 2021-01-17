@@ -11,7 +11,6 @@ import org.alieoa.work.universal.api.service.AnnounceService
 class IAnnounceImpl : IBaseMethod(), IAnnounce {
     override fun getAnnounces(
         onStart: () -> Unit,
-        onBeforeFinish: () -> Unit,
         onSuccess: (ArrayList<AnnounceBean>) -> Unit,
         onError: (Int, String) -> Unit,
         onFinish: () -> Unit
@@ -19,11 +18,11 @@ class IAnnounceImpl : IBaseMethod(), IAnnounce {
         ApiHttpClient.getInstance().generateService(AnnounceService::class.java)?.run {
             getAnnounces().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate { onBeforeFinish.invoke() }
+                .doAfterTerminate { onFinish() }
                 .subscribe(
                     { onSuccess(it) },
                     { onError(0, it.localizedMessage) },
-                    { onFinish() },
+                    { },
                     {
                         onStart()
                         addDisposable(it)

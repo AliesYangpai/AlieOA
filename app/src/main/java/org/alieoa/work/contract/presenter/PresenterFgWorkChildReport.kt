@@ -17,17 +17,15 @@ class PresenterFgWorkChildReport : BasePresenter<WorkChildReportContract.IWorkCh
 
     fun doGetReports() {
         mIReport?.getReports({ mView.showFreshLoading() },
-            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_1000) },
-            { mView.setDataOnReports(it) },
-            { _, msg -> mView.showToast(msg) },
-            { println("===doGetApprovesByPull onFinish") })
+            {it-> mView.setDataOnReports(it)},
+            {_,msg->mView.showToast(msg)},
+            {mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_1000)})
     }
 
     fun doGetReportsByPull() {
-        mIReport?.getReports({ },
-            { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_0) },
-            { mView.setDataOnReports(it) },
-            { _, msg -> mView.showToast(msg) },
-            { println("===doGetApprovesByPull onFinish") })
+        mIReport?.getReports({},
+            {it-> mView.setDataOnReports(it)},
+            {_,msg->mView.showToast(msg)},
+            {mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_0)})
     }
 }

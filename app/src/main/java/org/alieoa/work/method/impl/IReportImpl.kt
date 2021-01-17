@@ -9,12 +9,11 @@ import org.alieoa.work.universal.api.ApiHttpClient
 import org.alieoa.work.universal.api.service.ReportService
 
 /**
- * 方法实现类
+ * 汇报的相关接口实现
  */
 class IReportImpl : IBaseMethod(), IReport {
     override fun getReports(
         onStart: () -> Unit,
-        onBeforeFinish: () -> Unit,
         onSuccess: (ArrayList<ReportBean>) -> Unit,
         onError: (Int, String) -> Unit,
         onFinish: () -> Unit
@@ -23,12 +22,14 @@ class IReportImpl : IBaseMethod(), IReport {
             getReports()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate { onBeforeFinish.invoke() }
+                .doAfterTerminate { onFinish() }
                 .subscribe({ onSuccess(it) },
                     { onError(0, it.localizedMessage) },
-                    { onFinish() },
-                    { onStart()
-                    addDisposable(it) })
+                    { },
+                    {
+                        onStart()
+                        addDisposable(it)
+                    })
         }
     }
 }

@@ -12,7 +12,6 @@ interface IUser {
      */
     fun getUserInfo(
         onStart: () -> Unit,
-        onBeforeFinish: () -> Unit,
         onSuccess: (User) -> Unit,
         onError: (Int, String) -> Unit,
         onFinish: () -> Unit
@@ -23,7 +22,6 @@ interface IUser {
      */
     fun getFrequentContacts(
         onStart: () -> Unit,
-        onBeforeFinish: () -> Unit,
         onSuccess: (ArrayList<FrequentContact>) -> Unit,
         onError: (Int, String) -> Unit,
         onFinish: () -> Unit

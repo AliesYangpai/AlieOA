@@ -18,10 +18,10 @@ class IUserImpl : IBaseMethod(), IUser {
             getUserInfo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate { onDataBackListener.onBeforeFinish() }
+                .doAfterTerminate { onDataBackListener.onFinish() }
                 .subscribe({ onDataBackListener.onSuccess(it) },
                     { onDataBackListener.onError(0, it.localizedMessage) },
-                    { onDataBackListener.onFinish() },
+                    { },
                     {
                         onDataBackListener.onStar()
                         addDisposable(it)
@@ -32,7 +32,6 @@ class IUserImpl : IBaseMethod(), IUser {
 
     override fun getUserInfo(
         onStart: () -> Unit,
-        onBeforeFinish: () -> Unit,
         onSuccess: (User) -> Unit,
         onError: (Int, String) -> Unit,
         onFinish: () -> Unit
@@ -40,17 +39,14 @@ class IUserImpl : IBaseMethod(), IUser {
         ApiHttpClient.getInstance().generateService(UserService::class.java)?.run {
             getUserInfo().subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate { onBeforeFinish.invoke() }
-                .subscribe({
-                    onSuccess.invoke(it)
-                }, {
-                    onError.invoke(0, it.localizedMessage)
-                }, {
-                    onFinish.invoke()
-                }, {
-                    onStart.invoke()
-                    addDisposable(it)
-                })
+                .doAfterTerminate { onFinish() }
+                .subscribe({ onSuccess.invoke(it) },
+                    {
+                        onError.invoke(0, it.localizedMessage)
+                    }, {}, {
+                        onStart.invoke()
+                        addDisposable(it)
+                    })
         }
     }
 
@@ -59,7 +55,6 @@ class IUserImpl : IBaseMethod(), IUser {
      */
     override fun getFrequentContacts(
         onStart: () -> Unit,
-        onBeforeFinish: () -> Unit,
         onSuccess: (ArrayList<FrequentContact>) -> Unit,
         onError: (Int, String) -> Unit,
         onFinish: () -> Unit
@@ -68,10 +63,10 @@ class IUserImpl : IBaseMethod(), IUser {
             getUserFrequentContacts()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .doOnTerminate { onBeforeFinish.invoke() }
+                .doAfterTerminate { onFinish() }
                 .subscribe({ onSuccess.invoke(it) },
                     { onError.invoke(0, it.localizedMessage) },
-                    { onFinish.invoke() },
+                    { },
                     {
                         onStart.invoke()
                         addDisposable(it)

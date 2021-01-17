@@ -8,7 +8,6 @@ import org.alieoa.work.entity.AnnounceBean
 interface IAnnounce {
     fun getAnnounces(
         onStart: () -> Unit,
-        onBeforeFinish: () -> Unit,
         onSuccess: (ArrayList<AnnounceBean>) -> Unit,
         onError: (Int, String) -> Unit,
         onFinish: () -> Unit)
