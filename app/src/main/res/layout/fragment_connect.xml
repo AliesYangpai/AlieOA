@@ -26,7 +26,18 @@
         android:layout_marginEnd="@dimen/dp_10"
         app:layout_constraintEnd_toEndOf="@id/include_title_contact"
         app:layout_constraintStart_toStartOf="@id/include_title_contact"
-        app:layout_constraintTop_toBottomOf="@id/include_title_contact" />
+        app:layout_constraintTop_toBottomOf="@id/include_title_contact"
+        />
+
+    <View
+        android:id="@+id/view_line1"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0_5"
+        android:layout_marginTop="@dimen/dp_5"
+        android:background="@color/bg_all"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include_search" />
 
     <!-- 主要布局 -->
     <androidx.core.widget.NestedScrollView
@@ -37,7 +48,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include_search">
+        app:layout_constraintTop_toBottomOf="@+id/view_line1">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_inner_connect"
@@ -45,15 +56,6 @@
             android:layout_height="match_parent"
             >
             <!--手机通讯录-->
-            <View
-                android:id="@+id/view_line1"
-                android:layout_width="@dimen/dp_0"
-                android:layout_height="@dimen/dp_0_5"
-                android:layout_marginTop="@dimen/dp_5"
-                android:background="@color/bg_all"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/iv_phone_contact"
@@ -63,7 +65,7 @@
                 android:layout_marginTop="@dimen/dp_10"
                 android:src="@drawable/img_phone_contact"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_line1" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/tv_phone_contact"

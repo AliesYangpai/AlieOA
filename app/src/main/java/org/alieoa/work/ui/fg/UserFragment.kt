@@ -8,9 +8,13 @@ import android.widget.Toast
 import butterknife.BindView
 import butterknife.OnClick
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import org.alieoa.basemvp.BaseFragment
 
 import org.alieoa.work.R
+import org.alieoa.work.constant.ConstLocalData
 import org.alieoa.work.contract.UserContract
 import org.alieoa.work.contract.presenter.PresenterFgUser
 import org.alieoa.work.universal.db.entity.User
@@ -25,8 +29,8 @@ class UserFragment : BaseFragment<UserContract.IUserView, PresenterFgUser>(),
     @BindView(R.id.iv_user_head)
     lateinit var mIvUserHead: ImageView
 
-    @BindView(R.id.tv_nick_name)
-    lateinit var mTvNickName: TextView
+    @BindView(R.id.tv_name)
+    lateinit var mTvName: TextView
 
     @BindView(R.id.tv_enterprise_name)
     lateinit var mTvEnterpriseName: TextView
@@ -87,11 +91,13 @@ class UserFragment : BaseFragment<UserContract.IUserView, PresenterFgUser>(),
         println("=========UserFragment === onLazyLoad")
         mPresenter?.doGetUserInfoByLambda()
     }
+
     override fun setDataOnUserInfo(user: User?) {
-        mTvNickName.text = user?.fullName
+        mTvName.text = user?.fullName
         mTvEnterpriseName.text = user?.company
         Glide.with(mActivity).load(user?.avatar)
             .placeholder(R.drawable.test_img_head_round)
+            .apply(RequestOptions.bitmapTransform(CircleCrop()))
             .into(mIvUserHead)
     }
 

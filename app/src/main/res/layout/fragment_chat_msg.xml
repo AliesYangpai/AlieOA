@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp_10"
         android:layout_marginRight="@dimen/dp_10"
-
         app:layout_constraintStart_toStartOf="@+id/include_title_msg"
         app:layout_constraintEnd_toEndOf="@id/include_title_msg"
         app:layout_constraintTop_toBottomOf="@id/include_title_msg"
