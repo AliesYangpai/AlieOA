@@ -3,11 +3,10 @@ package org.alieoa.work.entity
 import org.alieoa.work.constant.ConstLocalData
 
 data class ClientBean (
-    var mId:Int = 0,
-    var mName:String?= null,
-    var mAge:Short = 0,
-    var mGender:Char = ConstLocalData.GENDER_UNKNOWN,
-    var mAvatar:String = "",
-    var mMsg:String?=null,
+    var name:String?= null,
+    var age:Short = 0,
+    var gender:Char = ConstLocalData.GENDER_UNKNOWN,
+    var avatar:String = "",
+    var describe:String?=null,
     var time:String?= null,
 )
