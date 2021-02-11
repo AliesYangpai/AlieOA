@@ -14,4 +14,8 @@ object ConstLocalData {
     const val COUNT_1 = 1
     const val COUNT_2 = 2
     const val COUNT_3 = 3
+
+    const val GENDER_MALE = '1' // 男
+    const val GENDER_FEMALE = '0' // 女
+    const val GENDER_UNKNOWN = '2' // 未知
 }

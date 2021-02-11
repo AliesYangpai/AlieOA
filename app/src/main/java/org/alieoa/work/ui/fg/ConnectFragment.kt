@@ -83,6 +83,7 @@ class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgCo
 
     override fun onFragmentResume() {
         super.onFragmentResume()
+        setTopViewFocus()
     }
 
     override fun setDataOnFrequentContacts(it: ArrayList<FrequentContact>?) {

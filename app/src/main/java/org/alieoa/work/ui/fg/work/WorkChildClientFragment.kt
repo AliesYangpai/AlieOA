@@ -1,17 +1,12 @@
 package org.alieoa.work.ui.fg.work
 
-//import androidx.fragment.app.Fragment
 import android.view.View
 import org.alieoa.basemvp.BaseFragment
 import org.alieoa.work.R
 import org.alieoa.work.contract.WorkChildClientContract
 import org.alieoa.work.contract.presenter.PresenterFgChildClient
 
-/**
- * A simple [Fragment] subclass.
- * Use the [WorkChildClientFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class WorkChildClientFragment :
     BaseFragment<WorkChildClientContract.IWorkChildClientView, PresenterFgChildClient>(),
     WorkChildClientContract.IWorkChildClientView {
