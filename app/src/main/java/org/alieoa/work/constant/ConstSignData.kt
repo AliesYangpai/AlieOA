@@ -1,6 +1,6 @@
 package org.alieoa.work.constant
 
-object ConstSign {
+object ConstSignData {
     const val COMMA = "、"
     const val DOU_COMMA = ","
     const val POINT = "."

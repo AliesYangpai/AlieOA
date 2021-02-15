@@ -88,6 +88,7 @@ class ConnectFragment : BaseFragment<ConnectContract.IConnectView, PresenterFgCo
 
     override fun setDataOnFrequentContacts(it: ArrayList<FrequentContact>?) {
         mTopContactAdapter?.setData(it)
+        setTopViewFocus()
     }
 
     override fun setTopViewFocus() {

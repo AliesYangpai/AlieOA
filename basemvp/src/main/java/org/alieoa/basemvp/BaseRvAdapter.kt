@@ -35,7 +35,7 @@ abstract class BaseRvAdapter<T> : RecyclerView.Adapter<BaseRvViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseRvViewHolder =
         BaseRvViewHolder(
             LayoutInflater.from(parent.context).inflate(getLayoutId(), parent, false))
-
+    
     override fun onBindViewHolder(holder: BaseRvViewHolder, position: Int) {
         holder.itemView.setOnClickListener {
             onItemClick?.invoke(mData!![position], position)

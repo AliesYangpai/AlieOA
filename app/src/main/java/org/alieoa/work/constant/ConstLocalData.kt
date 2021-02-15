@@ -10,6 +10,11 @@ object ConstLocalData {
     const val DELAY_MILLIS_1000 = 1000L
     const val DELAY_MILLIS_0 = 0L
 
+    const val LIST_INDEX_0 = 0
+    const val LIST_INDEX_1 = 1
+    const val LIST_INDEX_2 = 2
+
+
     const val COUNT_0 = 0
     const val COUNT_1 = 1
     const val COUNT_2 = 2

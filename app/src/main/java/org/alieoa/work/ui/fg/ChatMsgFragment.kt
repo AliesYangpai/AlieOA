@@ -2,7 +2,9 @@ package org.alieoa.work.ui.fg
 
 
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
+import butterknife.BindView
 import org.alieoa.basemvp.BaseFragment
 
 import org.alieoa.work.R
@@ -15,7 +17,8 @@ import org.alieoa.work.contract.presenter.PresenterFgChatMsg
 class ChatMsgFragment : BaseFragment<ChatMsgContract.IChatMsgView, PresenterFgChatMsg>(),
     ChatMsgContract.IChatMsgView {
 
-
+    @BindView(R.id.tv_common_title)
+    lateinit var mTvTitle: TextView
     override fun layoutId(): Int {
         return R.layout.fragment_chat_msg
     }
@@ -25,7 +28,7 @@ class ChatMsgFragment : BaseFragment<ChatMsgContract.IChatMsgView, PresenterFgCh
     }
 
     override fun initView(rootView: View) {
-
+        mTvTitle.text = getString(R.string.msg)
     }
 
     override fun initListener() {
@@ -36,11 +39,11 @@ class ChatMsgFragment : BaseFragment<ChatMsgContract.IChatMsgView, PresenterFgCh
     }
 
     override fun showToast(msg: String, duration: Int) {
-        Toast.makeText(mActivity.applicationContext,msg,duration).show()
+        Toast.makeText(mActivity.applicationContext, msg, duration).show()
     }
 
     override fun onDataBackFail(code: Int, errorMsg: String) {
-      //  TODO("Not yet implemented")
+        //  TODO("Not yet implemented")
     }
 
 
