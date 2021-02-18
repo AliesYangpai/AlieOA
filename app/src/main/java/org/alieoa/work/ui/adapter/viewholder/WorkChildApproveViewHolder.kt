@@ -17,7 +17,7 @@ class WorkChildApproveViewHolder(convertView: View) : BaseRvViewHolder(convertVi
         data.let {
             this.setText(R.id.tv_approver_name, it.name)
                 .setText(R.id.tv_work_approve_tip, it.commonTip)
-                .setText(R.id.tv_approve_title, it.tipTip.plus(it.commonTip))
+                .setText(R.id.tv_approve_title, it.commonTip)
                 .setText(R.id.tv_approve_type, it.commonTip)
                 .setText(R.id.tv_work_approve_info, it.describe)
                 .setText(R.id.tv_approve_time, it.time)

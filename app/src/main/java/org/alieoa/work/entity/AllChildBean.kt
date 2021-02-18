@@ -7,6 +7,6 @@ class AllChildBean(
     var avatar: String = "",
     var previewPicUrls: ArrayList<String>? = null,
     var commonTip: String = "",
-    var tipTip:String = "",
+    var type:Int = 0,
     var describe:String = "",
 )

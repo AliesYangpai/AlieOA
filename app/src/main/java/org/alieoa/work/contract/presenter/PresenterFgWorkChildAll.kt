@@ -20,14 +20,14 @@ class PresenterFgWorkChildAll : BasePresenter<WorkChildAllContract.IWorkChildAll
     }
 
     override fun doGetAllData() {
-        mIAll?.getWorkAll({},
+        mIAll?.getWorkAll({ mView.showFreshLoading() },
             { mView.setDataOnAll(it) },
             { _, msg -> mView.showToast(msg) },
             { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_1000) })
     }
 
     override fun doGetAllDataByPull() {
-        mIAll?.getWorkAll({ mView.showFreshLoading() },
+        mIAll?.getWorkAll({ },
             { mView.setDataOnAll(it) },
             { _, msg -> mView.showToast(msg) },
             { mView.dismissFreshLoading(ConstLocalData.DELAY_MILLIS_0) })
