@@ -1,5 +1,6 @@
 package org.alieoa.work.test
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -24,6 +25,7 @@ class TestActivity : AppCompatActivity() {
         var count:Short= 0;
         mBtn1.setOnClickListener {
             mTestUserViewModel.loadUserData(++count)
+            startActivity(Intent(this,Test2Activity::class.java))
         }
     }
 }
