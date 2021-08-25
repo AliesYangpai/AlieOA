@@ -3,9 +3,10 @@ package org.alieoa.work
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dagger.hilt.android.AndroidEntryPoint
 import org.alieoa.work.databinding.ActivityMainBinding
 import org.alieoa.work.test.TestActivity
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
