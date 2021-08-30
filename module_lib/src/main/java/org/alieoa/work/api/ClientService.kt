@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface ClientService {
     @GET("alieoa/work/clients")
-    fun getClients()
+    fun getClients():List<ClientBean>?
 }

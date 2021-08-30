@@ -7,7 +7,6 @@ import javax.inject.Singleton
 
 @Singleton
 class ApiHttpClient @Inject constructor() {
-
     val mRetrofit = Retrofit.Builder()
         .baseUrl(ConstUrl.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())

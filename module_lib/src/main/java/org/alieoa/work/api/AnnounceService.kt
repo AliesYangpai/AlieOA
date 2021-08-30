@@ -1,5 +1,6 @@
 package org.alieoa.work.api
 
+import org.alieoa.work.entity.AnnounceBean
 import retrofit2.http.GET
 
 /**
@@ -10,5 +11,5 @@ import retrofit2.http.GET
  */
 interface AnnounceService {
     @GET("alieoa/work/announces")
-    fun getAnnounces()
+    fun getAnnounces():List<AnnounceBean>?
 }

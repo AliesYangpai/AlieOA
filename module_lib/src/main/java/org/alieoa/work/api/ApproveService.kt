@@ -11,5 +11,5 @@ import retrofit2.http.GET
  */
 interface ApproveService {
     @GET("alieoa/work/approves")
-    fun getApproves()
+    fun getApproves():List<ApproveBean>?
 }

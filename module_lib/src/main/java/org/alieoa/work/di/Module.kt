@@ -34,5 +34,5 @@ object Module {
 
     @Provides
     @Singleton
-    fun provideAllService(apiHttpClient: ApiHttpClient) = apiHttpClient.mRetrofit.create(AllService::class.java)
+    fun provideAllService(apiHttpClient: ApiHttpClient) = apiHttpClient.mRetrofit.create(AllChildService::class.java)
 }
