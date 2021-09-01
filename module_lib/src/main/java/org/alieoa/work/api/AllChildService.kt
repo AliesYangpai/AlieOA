@@ -5,5 +5,5 @@ import retrofit2.http.GET
 
 interface AllChildService {
     @GET("alieoa/work/all")
-    fun getChildAll():List<AllChildBean>
+    suspend fun getChildAll(): List<AllChildBean>
 }
