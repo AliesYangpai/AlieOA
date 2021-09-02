@@ -6,11 +6,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import org.alieoa.work.ApiHttpClient
 import org.alieoa.work.api.*
+import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object Module {
+object ModuleService {
 
     @Provides
     @Singleton
@@ -34,5 +35,5 @@ object Module {
 
     @Provides
     @Singleton
-    fun provideAllService(apiHttpClient: ApiHttpClient) = apiHttpClient.mRetrofit.create(AllChildService::class.java)
+    fun provideAllService(retrofit: Retrofit):AllChildService = retrofit.create(AllChildService::class.java)
 }

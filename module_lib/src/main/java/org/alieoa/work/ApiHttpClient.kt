@@ -5,8 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-class ApiHttpClient @Inject constructor() {
+
+class ApiHttpClient {
     val mRetrofit = Retrofit.Builder()
         .baseUrl(ConstUrl.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())

@@ -37,15 +37,17 @@ android {
 
 dependencies {
     api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    api "androidx.fragment:fragment-ktx:1.3.5" // ktx fragment it's a convenience short hand for creating a lazy delegate obtaining ViewModels
-    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha02" // ktx viewModel
-    api "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha02" // ktx liveData
-    api "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02" // ktx lifeCycle
-    api 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01'
-    kapt 'androidx.hilt:hilt-compiler:1.0.0-alpha01'
-    api 'androidx.appcompat:appcompat:1.3.0'
+    api "androidx.fragment:fragment-ktx:1.3.6" // ktx fragment it's a convenience short hand for creating a lazy delegate obtaining ViewModels
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha03" // ktx viewModel
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha03" // ktx liveData
+    api "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha03" // ktx lifeCycle
+    api 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
+    api "com.google.dagger:hilt-android:2.38.1"
+    kapt "com.google.dagger:hilt-android-compiler:2.35"
+    api 'androidx.appcompat:appcompat:1.3.1'
     api 'androidx.core:core-ktx:1.6.0'
-    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+    api 'androidx.constraintlayout:constraintlayout:2.1.0'
     api 'com.google.android.material:material:1.4.0'
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0" // 协程相关
     api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0' // 协程相关

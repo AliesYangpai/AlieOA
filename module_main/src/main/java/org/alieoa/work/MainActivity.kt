@@ -24,10 +24,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showTest() {
-        startActivity(Intent(this, TestActivity::class.java))
-
+//        startActivity(Intent(this, TestActivity::class.java))
         workChildAllUpdater = WorkChildAllUpdater(mBinding)
-        workChildUiViewModel.stateDataAllChildWrapper.observe(this,workChildAllUpdater::onUpdate)
+        workChildUiViewModel.stateDataAllChildWrapperLiveData.observe(this,workChildAllUpdater::onUpdate)
+        workChildUiViewModel.launchData(this)
     }
 
 
