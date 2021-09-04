@@ -7,7 +7,7 @@ import org.alieoa.work.entity.AllChildBean
 import javax.inject.Inject
 
 
-class AllChildRepo @Inject constructor(private val service: AllChildService) {
+class AllChildRepo @Inject constructor( val service: AllChildService) {
     suspend fun getAllChildData(): Result<List<AllChildBean>> =
         try {
             withContext(Dispatchers.IO) { service.getChildAll() }.let {

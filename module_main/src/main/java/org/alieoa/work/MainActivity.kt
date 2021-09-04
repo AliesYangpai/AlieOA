@@ -1,12 +1,10 @@
 package org.alieoa.work
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.alieoa.work.databinding.ActivityMainBinding
-import org.alieoa.work.test.TestActivity
 import org.alieoa.work.updater.WorkChildAllUpdater
 import org.alieoa.work.vm.WorkChildUiViewModel
 
