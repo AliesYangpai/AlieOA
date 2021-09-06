@@ -13,27 +13,21 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object ModuleService {
 
+    /**
+     * 用户服务相关接口
+     * @param retrofit Retrofit
+     * @return UserService
+     */
     @Provides
     @Singleton
-    fun provideUserService(apiHttpClient: ApiHttpClient)= apiHttpClient.mRetrofit.create(UserService::class.java)
+    fun provideUserService(retrofit: Retrofit):UserService = retrofit.create(UserService::class.java)
 
+    /**
+     * 工作模块相关接口
+     * @param retrofit Retrofit
+     * @return WorkSectionService
+     */
     @Provides
     @Singleton
-    fun provideReportService(apiHttpClient: ApiHttpClient) = apiHttpClient.mRetrofit.create(ReportService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideClientService(apiHttpClient: ApiHttpClient) = apiHttpClient.mRetrofit.create(ClientService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideApproveService(apiHttpClient: ApiHttpClient) = apiHttpClient.mRetrofit.create(ApproveService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideAnnounceService(apiHttpClient: ApiHttpClient) = apiHttpClient.mRetrofit.create(AnnounceService::class.java)
-
-    @Provides
-    @Singleton
-    fun provideAllService(retrofit: Retrofit):AllChildService = retrofit.create(AllChildService::class.java)
+    fun provideWorkSectionService(retrofit: Retrofit):WorkSectionService = retrofit.create(WorkSectionService::class.java)
 }

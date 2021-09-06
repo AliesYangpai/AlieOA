@@ -11,19 +11,16 @@ import org.alieoa.work.handler.WorkChildAllListDataHandler
 import org.alieoa.work.repo.WorkSectionRepo
 import javax.inject.Inject
 
+
 @HiltViewModel
-class WorkChildUiViewModel @Inject constructor(val workSectionRepo: WorkSectionRepo) :
-    BaseViewModel() {
+class DebugViewModel @Inject constructor(val workSectionRepo: WorkSectionRepo) : BaseViewModel() {
 
 
-    private val _stateDataAllWorkSectionListWrapper: MutableLiveData<StateDataAllWorkSectionListWrapper> =
-        MutableLiveData<StateDataAllWorkSectionListWrapper>()
+    private val _stateDataAllWorkSectionListWrapper = MutableLiveData<StateDataAllWorkSectionListWrapper>()
 
     val stateDataAllWorkSectionListWrapper: LiveData<StateDataAllWorkSectionListWrapper> get() = _stateDataAllWorkSectionListWrapper
 
-    private val workChildAllListDataHandler =
-        WorkChildAllListDataHandler(_stateDataAllWorkSectionListWrapper)
-
+    private val workChildAllListDataHandler = WorkChildAllListDataHandler(_stateDataAllWorkSectionListWrapper)
 
     override fun launchData(viewLifecycleOwner: LifecycleOwner) {
         getAllWorkSectionData()
@@ -37,9 +34,4 @@ class WorkChildUiViewModel @Inject constructor(val workSectionRepo: WorkSectionR
             }
         }
     }
-
-
 }
-
-
-

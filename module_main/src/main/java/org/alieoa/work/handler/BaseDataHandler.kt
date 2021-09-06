@@ -8,7 +8,7 @@ abstract class BaseDataHandler<Data> {
     fun onHandleData(result: Result<Data>) {
         when (result.isSuccess) {
             true -> onHandleDataSuccess(result.isSuccess, result.getOrNull())
-            else -> onHandleDataError(result.isSuccess, result.exceptionOrNull()?.localizedMessage)
+            else -> onHandleDataError(result.isSuccess, result.exceptionOrNull()?.message)
         }
     }
 

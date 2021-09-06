@@ -6,14 +6,14 @@ import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.alieoa.work.databinding.ActivityMainBinding
 import org.alieoa.work.updater.WorkChildAllUpdater
-import org.alieoa.work.vm.WorkChildUiViewModel
+import org.alieoa.work.vm.DebugViewModel
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
 
-    private val workChildUiViewModel by viewModels<WorkChildUiViewModel>()
+    private val debugViewModel by viewModels<DebugViewModel>()
     private lateinit var workChildAllUpdater: WorkChildAllUpdater
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,8 +24,8 @@ class MainActivity : AppCompatActivity() {
     private fun showTest() {
 //        startActivity(Intent(this, TestActivity::class.java))
         workChildAllUpdater = WorkChildAllUpdater(mBinding)
-        workChildUiViewModel.stateDataAllChildWrapperLiveData.observe(this,workChildAllUpdater::onUpdate)
-        workChildUiViewModel.launchData(this)
+        debugViewModel.stateDataAllWorkSectionListWrapper.observe(this,workChildAllUpdater::onUpdate)
+        debugViewModel.launchData(this)
     }
 
 

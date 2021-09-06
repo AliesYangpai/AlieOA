@@ -1,26 +1,25 @@
 package org.alieoa.work.handler
 
 import androidx.lifecycle.MutableLiveData
-import org.alieoa.work.data.StateDataAllChildWrapper
-import org.alieoa.work.entity.AllChildBean
+import org.alieoa.work.data.StateDataAllWorkSectionListWrapper
+import org.alieoa.work.entity.WorkSectionAll
 
-class WorkChildAllListDataHandler(private val stateDataWrapperLiveData: MutableLiveData<StateDataAllChildWrapper>) :
-    BaseDataHandler<List<AllChildBean>>() {
-    override fun onHandleDataSuccess(ret: Boolean, data: List<AllChildBean>?) {
-        StateDataAllChildWrapper().also {
+class WorkChildAllListDataHandler(private val stateDataWrapperLiveDataWork: MutableLiveData<StateDataAllWorkSectionListWrapper>) :
+    BaseDataHandler<List<WorkSectionAll>>() {
+    override fun onHandleDataSuccess(ret: Boolean, data: List<WorkSectionAll>?) {
+        StateDataAllWorkSectionListWrapper().also {
             it.isSuccess = ret
-            it.list = data
+            it.mList = data
             it.isVisible = true
-            stateDataWrapperLiveData.value = it
+            stateDataWrapperLiveDataWork.value = it
         }
     }
 
     override fun onHandleDataError(ret: Boolean, msg: String?) {
-        StateDataAllChildWrapper().also {
+        StateDataAllWorkSectionListWrapper().also {
             it.isSuccess = ret
-            it.list = null
-            it.isVisible = false
-            stateDataWrapperLiveData.value = it
+            it.errorMsg = msg
+            stateDataWrapperLiveDataWork.value = it
         }
     }
 

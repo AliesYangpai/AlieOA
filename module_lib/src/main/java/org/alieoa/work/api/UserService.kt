@@ -1,6 +1,5 @@
 package org.alieoa.work.api
 
-import android.service.autofill.UserData
 import retrofit2.http.GET
 
 interface UserService {
