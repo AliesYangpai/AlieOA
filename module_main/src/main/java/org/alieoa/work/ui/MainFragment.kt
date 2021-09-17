@@ -4,9 +4,10 @@ package org.alieoa.work.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
+import dagger.hilt.android.AndroidEntryPoint
 import org.alieoa.work.databinding.FragmentMainBinding
 
-
+@AndroidEntryPoint
 class MainFragment : BaseFragment<FragmentMainBinding>() {
 
     override fun generateViewBinding(

@@ -11,7 +11,7 @@
 
 
 
-    <fragment
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/activity_main_nav_host_main"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"
