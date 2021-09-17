@@ -24,7 +24,8 @@ abstract class BaseFragment<Binding : ViewBinding> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return generateViewBinding(inflater, container).root
+        _binding = generateViewBinding(inflater, container)
+        return _binding?.root
     }
 
 

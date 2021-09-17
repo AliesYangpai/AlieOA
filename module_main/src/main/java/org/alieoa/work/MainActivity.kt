@@ -3,6 +3,7 @@ package org.alieoa.work
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.navigation.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import org.alieoa.work.databinding.ActivityMainBinding
 import org.alieoa.work.updater.WorkChildAllUpdater
@@ -18,6 +19,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mBinding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(mBinding.root)
         showTest()
     }
 
@@ -27,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         debugViewModel.stateDataAllWorkSectionListWrapper.observe(this,workChildAllUpdater::onUpdate)
         debugViewModel.launchData(this)
     }
+
 
 
 }

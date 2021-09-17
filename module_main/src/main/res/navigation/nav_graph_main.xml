@@ -8,5 +8,14 @@
         android:id="@+id/mainFragment"
         android:name="org.alieoa.work.ui.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/testFragment"
+        android:name="org.alieoa.work.ui.TestFragment"
+        android:label="fragment_test"
+        tools:layout="@layout/fragment_test" />
+
+
 </navigation>
